@@ -3,7 +3,7 @@
 /* =========================================================
    RENDERING
    ========================================================= */
-let activeDay = 1; // default to the Fourth (themed)
+let activeDay = 0; // default to Arrival Day (Fri)
 
 function scoreClass(v){return v>=3?"v3":(v==2?"v2":"v1");}
 
@@ -60,16 +60,14 @@ function placeName(s){
    then fall back to the existing stand-in image for that slot. Drop files in to use. */
 function placePhotos(a){
   if(a.noPhotos) return [];
-  const base=encodeURI(a.pl || placeName(a.name));
-  const themed=a.imgs||[];
-  const N=Math.max(themed.length,5);
-  let chains=[];
-  for(let i=0;i<N;i++){
-    let c=["images/places/"+base+"-"+(i+1)+".png","images/places/"+base+"-"+(i+1)+".jpg","images/places/"+base+"-"+(i+1)+".jpeg"];
-    if(themed[i]) c=c.concat(themed[i]);
-    chains.push(c);
+  // keep explicit REAL local photos (e.g., the bakery crawl pulls from images/food/…)
+  if(a.imgs && a.imgs.length){
+    var first=a.imgs[0], s=Array.isArray(first)?first[0]:first;
+    if(typeof s==='string' && s.indexOf('images/')===0) return a.imgs;
   }
-  return chains;
+  // otherwise show ONLY the photos uploaded to images/places/ (no stock/stand-ins)
+  var arr = PLACE_PHOTOS[a.pl || pkey(placeName(a.name))];
+  return (arr && arr.length) ? arr.map(function(p){return [p];}) : [];
 }
 
 function activityCard(a){
@@ -187,11 +185,35 @@ function eatHTML(e){
   return '<div class="eat">'+head+body+'</div>';
 }
 
+/* tongue-in-cheek "forecast" per day (by index) */
+const FORECASTS=[
+  "Forecast: scattered hugs at the airport, 100% chance of lobster 🦞",
+  "Forecast: sunny &amp; patriotic, with a fireworks finale after dark 🎆",
+  "Forecast: sandy everything, rogue seagulls, SPF strongly advised 🏖️",
+  "Forecast: heavy cannoli, low visibility through the pasta steam 🍝",
+  "Forecast: gusts of Gilded-Age envy with passing seafood showers ⛵",
+  "Forecast: highly cultured, with a late chance of museum-feet 🎨",
+  "Forecast: bittersweet skies, 100% chance of 'just one more pastry' 🥐"
+];
+function surpriseMe(){
+  let d=DATA.days[activeDay], names=[];
+  d.blocks.forEach(b=>(b.eats||[]).forEach(e=>{ if(!/^More near|^Or grab|picnic/i.test(e.n)) names.push(e.n); }));
+  let out=document.getElementById('surpriseOut');
+  if(!out) return;
+  if(!names.length){ out.innerHTML="🧺 No spots listed today — picnic it is!"; return; }
+  let pick=names[Math.floor(Math.random()*names.length)];
+  out.innerHTML='🍽️ The dice says: <b>'+pick+'</b>!';
+}
+
 function renderDay(d){
   let h='';
-  h+='<div class="day-banner"><span class="lob-emoji">'+(d.emoji||'🦞')+'</span>';
+  let di=DATA.days.indexOf(d);
+  h+='<div class="day-banner"><span class="lob-emoji" style="cursor:pointer" title="tap to celebrate!" onclick="emojiRain([\''+(d.emoji||'🦞')+'\'])">'+(d.emoji||'🦞')+'</span>';
   h+='<h2>'+d.theme+'</h2>';
-  h+='<div class="sub">'+d.dow+', '+d.date+(d.tagline?' &mdash; '+d.tagline:'')+'</div></div>';
+  h+='<div class="sub">'+d.dow+', '+d.date+(d.tagline?' &mdash; '+d.tagline:'')+'</div>';
+  h+='<div class="forecast">📡 '+(FORECASTS[di]||"Forecast: 100% chance of lobster 🦞")+'</div>';
+  h+='</div>';
+  h+='<div class="surprise-bar"><button class="surprise-btn" onclick="surpriseMe()">🎲 Surprise me — where do we eat?</button> <span id="surpriseOut" class="surprise-out"></span></div>';
 
   d.blocks.forEach(b=>{
     let meal = (b.slot==="Lunch"||b.slot==="Dinner");
@@ -242,6 +264,7 @@ function selectDay(i){
   activeDay=i; renderPills();
   document.getElementById('dayContent').innerHTML=renderDay(DATA.days[i]);
   initImgs(document.getElementById('dayContent'));
+  if(/Fourth of July/.test(DATA.days[i].theme||"")) setTimeout(function(){ emojiRain(['🎆','🎇','✨','🎉'],55); }, 300);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -268,8 +291,54 @@ function renderInfo(){
   document.getElementById('view-info').innerHTML=DATA.info;
 }
 
+/* ---- inline goofy cartoon "monster" avatar (no external images) ---- */
+function monsterSVG(o){
+  o=o||{}; const c=o.c||"#ff7eb6";
+  let g='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">';
+  if(o.dino) g+='<g fill="#3f8f3f"><path d="M30 22 l6 -15 l6 15 Z"/><path d="M44 18 l6 -16 l6 16 Z"/><path d="M58 22 l6 -15 l6 15 Z"/></g>';
+  if(o.acc==="antennae") g+='<g stroke="'+c+'" stroke-width="3"><line x1="38" y1="22" x2="31" y2="7"/><line x1="62" y1="22" x2="69" y2="7"/></g><circle cx="31" cy="6" r="4" fill="'+c+'"/><circle cx="69" cy="6" r="4" fill="'+c+'"/>';
+  g+='<ellipse cx="50" cy="55" rx="33" ry="35" fill="'+c+'"/>';
+  g+='<ellipse cx="50" cy="62" rx="19" ry="20" fill="#ffffff" opacity="0.16"/>';
+  // eyes
+  g+='<circle cx="39" cy="48" r="11" fill="#fff"/><circle cx="61" cy="48" r="11" fill="#fff"/>';
+  g+='<circle cx="41" cy="50" r="5" fill="#241c16"/><circle cx="59" cy="50" r="5" fill="#241c16"/>';
+  g+='<circle cx="43" cy="48" r="1.7" fill="#fff"/><circle cx="61" cy="48" r="1.7" fill="#fff"/>';
+  // cheeks
+  g+='<circle cx="28" cy="60" r="5" fill="#ff9aae" opacity="0.55"/><circle cx="72" cy="60" r="5" fill="#ff9aae" opacity="0.55"/>';
+  // big grin (mouth, tongue, teeth)
+  g+='<path d="M36 66 Q50 82 64 66 Q50 74 36 66 Z" fill="#3a1620"/>';
+  g+='<path d="M44 72 Q50 77 56 72 Z" fill="#ff7d97"/>';
+  g+='<rect x="41" y="65.5" width="18" height="3.4" rx="1" fill="#fff"/>';
+  if(o.dino) g+='<circle cx="46" cy="60" r="1.6" fill="#2f6f2f"/><circle cx="54" cy="60" r="1.6" fill="#2f6f2f"/>';
+  if(o.acc==="glasses") g+='<g fill="none" stroke="#241c16" stroke-width="2.6"><circle cx="39" cy="48" r="13"/><circle cx="61" cy="48" r="13"/><line x1="52" y1="48" x2="48" y2="48"/></g>';
+  if(o.acc==="sun") g+='<g fill="#241c16"><rect x="26" y="40" width="22" height="14" rx="6"/><rect x="52" y="40" width="22" height="14" rx="6"/><rect x="46" y="45" width="8" height="3"/></g>';
+  if(o.acc==="party") g+='<path d="M50 0 L38 20 L62 20 Z" fill="#ffd23f" stroke="#e0a800"/><circle cx="50" cy="1" r="3.5" fill="#ff5a5f"/><circle cx="45" cy="12" r="1.6" fill="#ff5a5f"/><circle cx="56" cy="15" r="1.6" fill="#36c98d"/>';
+  if(o.acc==="bow") g+='<g fill="#ff4f81"><path d="M50 16 L36 8 L36 24 Z"/><path d="M50 16 L64 8 L64 24 Z"/></g><circle cx="50" cy="16" r="4" fill="#ff4f81"/>';
+  g+='</svg>';
+  return g;
+}
+
+/* ---- Crew view (cartoon avatars; Amanda is a dino) ---- */
+const AWARDS={Mom:"🏅 Cannoli Connoisseur", Johnny:"🛋️ Most Chill", David:"🎂 Birthday VIP", Jillene:"🦪 Oyster Whisperer", Kevin:"🗺️ Chief Itinerary Officer", Amanda:"🦖 Resident Dinosaur"};
+function renderMembers(){
+  let h='<div class="panel"><h2>👥 Ocean Six</h2><p class="lead">'+DATA.membersIntro+'</p>';
+  if(DATA.photosUrl) h+='<div class="photos-cta"><a class="photos-btn" href="'+DATA.photosUrl+'" target="_blank" rel="noopener">📸 Open the Shared Trip Photo Album</a><div class="photos-sub">Tap to view everyone’s pics — and add your own! 📲</div></div>';
+  h+='<div class="crew">';
+  (DATA.members||[]).forEach(p=>{
+    let av = '<span class="avatar" style="background:'+p.color+'">'+(p.toon?monsterSVG(p.toon):(p.emoji||p.code))+'</span>';
+    h+='<div class="crew-card">'+av+
+       '<div class="crew-name">'+p.name+' <span class="crew-code">'+p.code+'</span></div>'+
+       '<div class="crew-blurb">'+p.blurb+'</div>'+
+       (p.fav?'<div class="crew-fav">❤️ '+p.fav+'</div>':'')+
+       (AWARDS[p.name]?'<div class="crew-award">'+AWARDS[p.name]+'</div>':'')+
+       '</div>';
+  });
+  h+='</div><p style="font-size:13px;color:#667;margin-top:14px">Andy &amp; Naomi join just for the <b>Newport day trip (Tue 7/7)</b>. The letters (M · Jo · D · Ji · K · A) match the scores on each activity.</p></div>';
+  document.getElementById('view-crew').innerHTML=h;
+}
+
 function showView(v){
-  ['itin','fifa','info'].forEach(x=>{
+  ['itin','crew','fifa','info'].forEach(x=>{
     document.getElementById('view-'+x).classList.toggle('hidden', x!==v);
     document.getElementById('tab-'+x).classList.toggle('active', x===v);
   });
@@ -371,4 +440,63 @@ renderPills();
 selectDay(activeDay);
 renderFifa();
 renderInfo();
+renderMembers();
+showView('crew');   // open on the Crew page
+(function(){ var u=DATA.photosUrl; if(!u) return;
+  var f=document.getElementById('fab-photos'); if(f) f.href=u;
+})();
 loadBackground();
+
+/* ---- just-for-fun extras ---- */
+const LOB_PUNS=[
+  "Pinch me — we’re really in Boston! 🦞",
+  "Shell yeah, vacation! 🦞",
+  "We came for the lobster. We stayed for the lobster.",
+  "Feeling shellfish? Order two lobster rolls.",
+  "Wicked good, as they say ’round here.",
+  "Keep calm and cannoli on. 🥐",
+  "Today’s plan: snack accordingly.",
+  "In butter we trust.",
+  "Resistance is feudal — we’re touring mansions. 🏰",
+  "Eat. Beach. Repeat."
+];
+function newPun(){ var el=document.getElementById('lobPun'); if(el) el.textContent=LOB_PUNS[Math.floor(Math.random()*LOB_PUNS.length)]; }
+function emojiRain(chars, count){
+  if(typeof chars==='string') chars=[chars];
+  if(!chars||!chars.length) chars=['🦞'];
+  count=count||70;
+  for(var i=0;i<count;i++){ (function(){
+    var s=document.createElement('div'); s.className='lobdrop';
+    s.textContent=chars[Math.floor(Math.random()*chars.length)];
+    s.style.left=(Math.random()*98)+'vw';
+    var size=14+Math.random()*52;                       // ~14–66px
+    var dur=2.4 + ((size-14)/52)*3.4 + Math.random()*0.4; // bigger = slower (depth)
+    s.style.fontSize=size+'px';
+    s.style.opacity=(0.6 + (size-14)/52*0.4).toFixed(2);  // bigger = a touch bolder
+    s.style.animationDuration=dur+'s';
+    s.style.animationDelay=(Math.random()*0.6)+'s';
+    document.body.appendChild(s);
+    setTimeout(function(){ s.remove(); }, (dur+0.8)*1000);
+  })(); }
+}
+function lobsterRain(){ emojiRain(['🦞'],70); }
+/* countdown: "X sleeps until lobster" */
+(function(){
+  var el=document.getElementById('countdown'); if(!el) return;
+  var start=new Date(2026,6,3), end=new Date(2026,6,9,23,59,59), now=new Date();
+  var msg;
+  if(now>end) msg="🦞 Hope the trip was wicked good!";
+  else if(now>=start) msg="🦞 We’re on the trip — eat accordingly!";
+  else { var days=Math.ceil((start-now)/86400000); msg="🦞 "+days+" sleep"+(days===1?"":"s")+" until lobster!"; }
+  el.textContent=msg;
+})();
+
+(function(){
+  newPun();
+  var lob=document.querySelector('footer .lob');
+  if(lob) lob.addEventListener('click', function(){ lobsterRain(); newPun(); });
+  var orig=document.title;
+  document.addEventListener('visibilitychange', function(){
+    document.title = document.hidden ? '🦞 come baaack — the cannoli’s getting cold!' : orig;
+  });
+})();

@@ -19,20 +19,31 @@ function yelpQ(name,loc){return "https://www.yelp.com/search?find_desc="+encodeU
    ========================================================= */
 const FOOD_PHOTOS = {
   "anticoforno":["images/food/Antico%20Forno-1.png","images/food/Antico%20Forno-2.png","images/food/Antico%20Forno-3.png","images/food/Antico%20Forno-4.png","images/food/Antico%20Forno-5.png","images/food/Antico%20Forno-6.png","images/food/Antico%20Forno-7.png","images/food/Antico%20Forno-8.png"],
+  "atlanticfishcompany":["images/food/Atlantic%20Fish%20Company-1.png","images/food/Atlantic%20Fish%20Company-2.png","images/food/Atlantic%20Fish%20Company-3.png","images/food/Atlantic%20Fish%20Company-4.png","images/food/Atlantic%20Fish%20Company-5.png","images/food/Atlantic%20Fish%20Company-6.png","images/food/Atlantic%20Fish%20Company-7.png"],
   "carmelinas":["images/food/Carmelina_s-1.png","images/food/Carmelina_s-2.png","images/food/Carmelina_s-3.png","images/food/Carmelina_s-4.png","images/food/Carmelina_s-5.png","images/food/Carmelina_s-6.png","images/food/Carmelina_s-7.png","images/food/Carmelina_s-8.png","images/food/Carmelina_s-9.png","images/food/Carmelina_s-10.png"],
   "daveshotchicken":["images/food/Dave_s%20Hot%20Chicken-1.png","images/food/Dave_s%20Hot%20Chicken-2.png"],
+  "eastonsbeachsnackbar":["images/food/Easton_s%20Beach%20Snack%20Bar-1.png","images/food/Easton_s%20Beach%20Snack%20Bar-2.png","images/food/Easton_s%20Beach%20Snack%20Bar-3.png","images/food/Easton_s%20Beach%20Snack%20Bar-4.png","images/food/Easton_s%20Beach%20Snack%20Bar-5.png","images/food/Easton_s%20Beach%20Snack%20Bar-6.png"],
+  "flosclamshack":["images/food/Flo_s%20Clam%20Shack-1.png","images/food/Flo_s%20Clam%20Shack-2.png","images/food/Flo_s%20Clam%20Shack-3.png","images/food/Flo_s%20Clam%20Shack-4.png","images/food/Flo_s%20Clam%20Shack-5.png","images/food/Flo_s%20Clam%20Shack-6.png"],
+  "fogodechao":["images/food/Fogo%20de%20Cha%CC%83o-1.png","images/food/Fogo%20de%20Cha%CC%83o-2.png","images/food/Fogo%20de%20Cha%CC%83o-3.png","images/food/Fogo%20de%20Cha%CC%83o-4.png","images/food/Fogo%20de%20Cha%CC%83o-5.png","images/food/Fogo%20de%20Cha%CC%83o-6.png"],
   "gordonramsey":["images/food/Gordon%20Ramsey-1.png","images/food/Gordon%20Ramsey-2.png","images/food/Gordon%20Ramsey-3.png","images/food/Gordon%20Ramsey-4.png"],
   "jirossushi":["images/food/Jiro%E2%80%98s%20Sushi-1.png","images/food/Jiro%E2%80%98s%20Sushi-2.png","images/food/Jiro%E2%80%98s%20Sushi-3.png","images/food/Jiro%E2%80%98s%20Sushi-4.png","images/food/Jiro%E2%80%98s%20Sushi-5.png"],
   "legalseafoods":["images/food/Legal%20Sea%20Foods-1.png","images/food/Legal%20Sea%20Foods-2.png","images/food/Legal%20Sea%20Foods-3.png","images/food/Legal%20Sea%20Foods-4.png","images/food/Legal%20Sea%20Foods-5.png","images/food/Legal%20Sea%20Foods-6.png"],
+  "machupicchuboston":["images/food/Machu%20Picchu%20Boston-1.png","images/food/Machu%20Picchu%20Boston-2.png","images/food/Machu%20Picchu%20Boston-3.png","images/food/Machu%20Picchu%20Boston-4.png","images/food/Machu%20Picchu%20Boston-5.png","images/food/Machu%20Picchu%20Boston-6.png","images/food/Machu%20Picchu%20Boston-7.png","images/food/Machu%20Picchu%20Boston-8.png","images/food/Machu%20Picchu%20Boston-9.png"],
   "manaescondidocafe":["images/food/Mana%CC%80%20Escondido%20Cafe-1.png","images/food/Mana%CC%80%20Escondido%20Cafe-2.png","images/food/Mana%CC%80%20Escondido%20Cafe-4.png","images/food/Mana%CC%80%20Escondido%20Cafe-5.png"],
+  "midtownoysterbar":["images/food/Midtown%20Oyster%20Bar-1.png","images/food/Midtown%20Oyster%20Bar-2.png","images/food/Midtown%20Oyster%20Bar-3.png","images/food/Midtown%20Oyster%20Bar-4.png","images/food/Midtown%20Oyster%20Bar-5.png","images/food/Midtown%20Oyster%20Bar-6.png"],
   "mikespastry":["images/food/Mike_s%20Pastry-1.png","images/food/Mike_s%20Pastry-2.png","images/food/Mike_s%20Pastry-3.png","images/food/Mike_s%20Pastry-4.png","images/food/Mike_s%20Pastry-6.png"],
+  "mission":["images/food/Mission-1.png","images/food/Mission-2.png","images/food/Mission-3.png","images/food/Mission-4.png"],
   "modernpastryshop":["images/food/Modern%20Pastry%20Shop-1.png","images/food/Modern%20Pastry%20Shop-2.png","images/food/Modern%20Pastry%20Shop-3.png"],
   "monicasmercato":["images/food/Monica_s%20Mercato-1.png","images/food/Monica_s%20Mercato-2.png","images/food/Monica_s%20Mercato-3.png","images/food/Monica_s%20Mercato-4.png","images/food/Monica_s%20Mercato-5.png"],
   "neptuneoyster":["images/food/Neptune%20Oyster-1.png","images/food/Neptune%20Oyster-2.png","images/food/Neptune%20Oyster-3.png","images/food/Neptune%20Oyster-4.png","images/food/Neptune%20Oyster-5.png"],
+  "oliverassteakhouse":["images/food/Olivera_s%20Steakhouse-1.png","images/food/Olivera_s%20Steakhouse-2.png","images/food/Olivera_s%20Steakhouse-3.png","images/food/Olivera_s%20Steakhouse-4.png","images/food/Olivera_s%20Steakhouse-5.png","images/food/Olivera_s%20Steakhouse-6.png","images/food/Olivera_s%20Steakhouse-7.png","images/food/Olivera_s%20Steakhouse-8.png","images/food/Olivera_s%20Steakhouse-9.png"],
   "quincymarket":["images/food/Quincy%20Market-1.png","images/food/Quincy%20Market-2.png","images/food/Quincy%20Market-3.png","images/food/Quincy%20Market-4.png","images/food/Quincy%20Market-5.png"],
   "raisingcanes":["images/food/Raising%20Cane_s-1.png","images/food/Raising%20Cane_s-2.png","images/food/Raising%20Cane_s-3.png","images/food/Raising%20Cane_s-4.png","images/food/Raising%20Cane_s-5.png"],
+  "ruka":["images/food/Ruka-1.png","images/food/Ruka-2.png","images/food/Ruka-3.png","images/food/Ruka-4.png","images/food/Ruka-5.png","images/food/Ruka-6.png","images/food/Ruka-7.png","images/food/Ruka-8.png"],
   "saltiegirl":["images/food/Saltie%20Girl-1.png","images/food/Saltie%20Girl-2.png","images/food/Saltie%20Girl-3.png","images/food/Saltie%20Girl-4.png","images/food/Saltie%20Girl-5.png","images/food/Saltie%20Girl-6.png"],
   "sarvaindiancuisine":["images/food/Sarva%20Indian%20Cuisine-1.png","images/food/Sarva%20Indian%20Cuisine-2.png","images/food/Sarva%20Indian%20Cuisine-3.png","images/food/Sarva%20Indian%20Cuisine-4.png","images/food/Sarva%20Indian%20Cuisine-5.png","images/food/Sarva%20Indian%20Cuisine-6.png","images/food/Sarva%20Indian%20Cuisine-7.png","images/food/Sarva%20Indian%20Cuisine-8.png","images/food/Sarva%20Indian%20Cuisine-9.png"],
+  "spettusbraziliansteakhouse":["images/food/Spettus%20Brazilian%20Steakhouse-1.png","images/food/Spettus%20Brazilian%20Steakhouse-2.png","images/food/Spettus%20Brazilian%20Steakhouse-3.png","images/food/Spettus%20Brazilian%20Steakhouse-4.png","images/food/Spettus%20Brazilian%20Steakhouse-5.png","images/food/Spettus%20Brazilian%20Steakhouse-6.png","images/food/Spettus%20Brazilian%20Steakhouse-7.png","images/food/Spettus%20Brazilian%20Steakhouse-8.png"],
+  "stephaniesonnewbury":["images/food/Stephanie_s%20On%20Newbury-1.png","images/food/Stephanie_s%20On%20Newbury-2.png","images/food/Stephanie_s%20On%20Newbury-3.png","images/food/Stephanie_s%20On%20Newbury-4.png"],
   "sweetcheeksq":["images/food/Sweet%20Cheeks%20Q-1.png","images/food/Sweet%20Cheeks%20Q-2.png","images/food/Sweet%20Cheeks%20Q-3.png","images/food/Sweet%20Cheeks%20Q-4.png","images/food/Sweet%20Cheeks%20Q-5.png"],
   "tattebakerycafe":["images/food/Tatte%20Bakery%20&%20Cafe-1.png","images/food/Tatte%20Bakery%20&%20Cafe-2.png","images/food/Tatte%20Bakery%20&%20Cafe-3.png","images/food/Tatte%20Bakery%20&%20Cafe-4.png","images/food/Tatte%20Bakery%20&%20Cafe-5.png","images/food/Tatte%20Bakery%20&%20Cafe-6.png","images/food/Tatte%20Bakery%20&%20Cafe-7.png","images/food/Tatte%20Bakery%20&%20Cafe-8.png"],
   "thegreatestbar":["images/food/The%20Greatest%20Bar-1.png","images/food/The%20Greatest%20Bar-2.png","images/food/The%20Greatest%20Bar-3.png","images/food/The%20Greatest%20Bar-4.png","images/food/The%20Greatest%20Bar-5.png"],
@@ -41,7 +52,27 @@ const FOOD_PHOTOS = {
   "triplescraftbbq":["images/food/Triple%20S%20Craft%20BBQ-1.png","images/food/Triple%20S%20Craft%20BBQ-2.png","images/food/Triple%20S%20Craft%20BBQ-3.png","images/food/Triple%20S%20Craft%20BBQ-4.png"],
   "unionoysterhouse":["images/food/Union%20Oyster%20House-1.png","images/food/Union%20Oyster%20House-2.png","images/food/Union%20Oyster%20House-3.png","images/food/Union%20Oyster%20House-4.png","images/food/Union%20Oyster%20House-5.png","images/food/Union%20Oyster%20House-6.png","images/food/Union%20Oyster%20House-7.png","images/food/Union%20Oyster%20House-8.png"],
   "vejigantesrestaurant":["images/food/Vejigantes%20Restaurant-1.png","images/food/Vejigantes%20Restaurant-2.png","images/food/Vejigantes%20Restaurant-3.png","images/food/Vejigantes%20Restaurant-4.png","images/food/Vejigantes%20Restaurant-5.png","images/food/Vejigantes%20Restaurant-6.png","images/food/Vejigantes%20Restaurant-7.png","images/food/Vejigantes%20Restaurant-8.png"],
+  "wahlburgers":["images/food/Wahlburgers-1.png","images/food/Wahlburgers-2.png","images/food/Wahlburgers-3.png","images/food/Wahlburgers-4.png"],
   "warehousekitchensportsbar":["images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-1.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-2.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-3.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-4.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-5.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-6.png"]
+};
+const PLACE_PHOTOS = {
+  "bostonpubliclibrary":["images/places/Boston%20Public%20Library-1.png","images/places/Boston%20Public%20Library-2.png","images/places/Boston%20Public%20Library-3.png","images/places/Boston%20Public%20Library-4.png","images/places/Boston%20Public%20Library-5.png","images/places/Boston%20Public%20Library-6.png"],
+  "bostonteapartyshipsmuseum":["images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-1.png","images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-2.png","images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-3.png"],
+  "cathedraloftheholycross":["images/places/Cathedral%20of%20the%20Holy%20Cross-1.png","images/places/Cathedral%20of%20the%20Holy%20Cross-2.png","images/places/Cathedral%20of%20the%20Holy%20Cross-3.png","images/places/Cathedral%20of%20the%20Holy%20Cross-4.png","images/places/Cathedral%20of%20the%20Holy%20Cross-5.png"],
+  "charlesriveresplanade":["images/places/Charles%20River%20Esplanade-1.png","images/places/Charles%20River%20Esplanade-2.png","images/places/Charles%20River%20Esplanade-3.png","images/places/Charles%20River%20Esplanade-4.png","images/places/Charles%20River%20Esplanade-5.png","images/places/Charles%20River%20Esplanade-6.png"],
+  "cliffwalk":["images/places/Cliff%20Walk-1.png","images/places/Cliff%20Walk-2.png","images/places/Cliff%20Walk-3.png","images/places/Cliff%20Walk-4.png","images/places/Cliff%20Walk-5.png","images/places/Cliff%20Walk-6.png"],
+  "isabellastewartgardnermuseum":["images/places/Isabella%20Stewart%20Gardner%20Museum-1.png","images/places/Isabella%20Stewart%20Gardner%20Museum-2.png","images/places/Isabella%20Stewart%20Gardner%20Museum-3.png","images/places/Isabella%20Stewart%20Gardner%20Museum-4.png"],
+  "kingschapelandkingschapelburyingground":["images/places/King%E2%80%99s%20Chapel%20and%20King%E2%80%99s%20Chapel%20Burying%20Ground-1.png","images/places/King%E2%80%99s%20Chapel%20and%20King%E2%80%99s%20Chapel%20Burying%20Ground-2.png","images/places/King%E2%80%99s%20Chapel%20and%20King%E2%80%99s%20Chapel%20Burying%20Ground-3.png","images/places/King%E2%80%99s%20Chapel%20and%20King%E2%80%99s%20Chapel%20Burying%20Ground-4.png"],
+  "mit":["images/places/MIT.png","images/places/MIT-2.png","images/places/MIT-3.png","images/places/MIT-4.png"],
+  "marybakereddylibrarythemapparium":["images/places/Mary%20Baker%20Eddy%20Library%20&%20the%20Mapparium-1.png","images/places/Mary%20Baker%20Eddy%20Library%20&%20the%20Mapparium-2.png","images/places/Mary%20Baker%20Eddy%20Library%20&%20the%20Mapparium-3.png","images/places/Mary%20Baker%20Eddy%20Library%20&%20the%20Mapparium-4.png"],
+  "museumofscience":["images/places/Museum%20of%20Science-1.png","images/places/Museum%20of%20Science-2.png","images/places/Museum%20of%20Science-3.png","images/places/Museum%20of%20Science-4.png","images/places/Museum%20of%20Science-5.png","images/places/Museum%20of%20Science-6.png","images/places/Museum%20of%20Science-7.png","images/places/Museum%20of%20Science-8.png"],
+  "newportharbor":["images/places/Newport%20Harbor-1.png","images/places/Newport%20Harbor-2.png","images/places/Newport%20Harbor-3.png"],
+  "newportmansionsmarblehouse":["images/places/Newport%20Mansions%20-%20Marble%20House-1.png","images/places/Newport%20Mansions%20-%20Marble%20House-2.png","images/places/Newport%20Mansions%20-%20Marble%20House-3.png","images/places/Newport%20Mansions%20-%20Marble%20House-4.png","images/places/Newport%20Mansions%20-%20Marble%20House-5.png","images/places/Newport%20Mansions%20-%20Marble%20House-6.png","images/places/Newport%20Mansions%20-%20Marble%20House-7.png","images/places/Newport%20Mansions%20-%20Marble%20House-8.png","images/places/Newport%20Mansions%20-%20Marble%20House-9.png"],
+  "newportmansionsthebreakers":["images/places/Newport%20Mansions%20-%20The%20Breakers-1.png","images/places/Newport%20Mansions%20-%20The%20Breakers-2.png","images/places/Newport%20Mansions%20-%20The%20Breakers-3.png","images/places/Newport%20Mansions%20-%20The%20Breakers-4.png","images/places/Newport%20Mansions%20-%20The%20Breakers-5.png","images/places/Newport%20Mansions%20-%20The%20Breakers-6.png","images/places/Newport%20Mansions%20-%20The%20Breakers-7.png"],
+  "oldstatehouse":["images/places/Old%20State%20House.png"],
+  "paulreverehouse":["images/places/Paul%20Revere%20House-1.png","images/places/Paul%20Revere%20House-2.png","images/places/Paul%20Revere%20House-3.png","images/places/Paul%20Revere%20House-4.png"],
+  "supergirl":["images/places/Supergirl-1.png","images/places/Supergirl-2.png","images/places/Supergirl-3.png"],
+  "wollastonbeach":["images/places/Wollaston%20Beach-1.png","images/places/Wollaston%20Beach-2.png","images/places/Wollaston%20Beach-3.png","images/places/Wollaston%20Beach-4.png","images/places/Wollaston%20Beach-5.png"]
 };
 function pkey(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"");}
 function eatPhotos(e){
@@ -71,11 +102,7 @@ const DATA = {
   /* Wollaston Beach (Quincy, MA) background — tries real photos, else keeps the beach gradient */
   bg:[
     "images/wollaston-beach.jpg",
-    "wollaston-beach.jpg",
-    wm("Wollaston Beach, Quincy MA.jpg",1600),
-    lf("wollaston,beach,quincy",901),
-    lf("quincy,massachusetts,beach,ocean",902),
-    lf("new,england,beach,coast,ocean",903)
+    "wollaston-beach.jpg"
   ],
 
   days:[
@@ -85,7 +112,7 @@ const DATA = {
       theme:"Arrival Day — Cambridge & South Shore", tagline:"The family assembles, one delayed flight at a time. 🛬",
       blocks:[
         {slot:"Morning", icon:"🌅", activities:[
-          {name:"MIT & Cambridge stroll", cat:"Boston (read with accent)",
+          {name:"MIT & Cambridge stroll", cat:"Boston (read with accent)", pl:"mit",
            notes:"Amanda, Kevin & Johnny kick things off at MIT. Cambridge has more walking to get around — Harvard is close to Johnny's apartment. A relaxed start while the rest of the family travels in.",
            address:"MIT, 314 Main St, Cambridge, MA 02142",
            pref:{M:2,Jo:1,D:1,Ji:1,K:3,A:3,total:11},
@@ -117,7 +144,7 @@ const DATA = {
            transit:'<span class="line-tag L-silver">Silver Line</span> — SL1/SL2 to Seaport.', maps:mapsQ("Yankee Lobster Co 300 Northern Ave Boston"), hours:"11 AM–8 PM (Thu–Sat to 9)"},
           {n:"More near the base — Quincy Center & Marina Bay", nonsea:true, d:"A short drive from the AirBnB: steakhouses & gastropubs in Quincy Center, waterfront patios at Marina Bay, plus Quincy's huge Asian food scene (Cantonese, Vietnamese, Korean).", walk:"Quincy · short drive", price:"$12–35 pp", transit:'<span class="line-tag L-red">Red Line</span> — Quincy Center / North Quincy.', maps:mapsQ("restaurants Quincy Center MA")},
           {n:"Machu Picchu Boston", nonsea:true, d:"Peruvian in Somerville near Johnny's place — lomo saltado, rotisserie chicken & more. A big group favorite on the sheet (score 17!).", walk:"Somerville · near Cambridge", price:"$15–30 pp", transit:'<span class="line-tag L-red">Red Line</span> — Davis/Porter + short ride.', maps:mapsQ("Machu Picchu 307 Somerville Ave Somerville MA"), hours:"11:30 AM–9 PM (Fri to 10, Sat to 11)"},
-          {n:"Midwest Grill (Brazilian churrascaria)", nonsea:true, d:"All-you-can-eat Brazilian rodizio in Cambridge's Inman Square — skewers of grilled meats carved tableside. Bring an appetite.", walk:"Cambridge · Inman Sq", price:"$25–40 pp", transit:'<span class="line-tag L-red">Red Line</span> — Central + short ride.', maps:mapsQ("Midwest Grill Cambridge MA"), hours:"Mon–Sat 11:30 AM–11 PM (closed Sun)"}
+          {n:"Oliveira's Steak House", nonsea:true, pk:"oliverassteakhouse", d:"Brazilian churrascaria in Somerville — beef rodízio sliced tableside (sirloin, strip loin) plus a salad & hot-sides bar. Near the Cambridge/Somerville crew.", walk:"Somerville · Washington St", price:"$30–45 pp", transit:'<span class="line-tag L-green">Green Line</span> — Union Sq + short walk.', maps:mapsQ("Oliveira's Steak House 120 Washington St Somerville MA"), hours:"10:30 AM–11 PM (Thu–Sun to 11:30)"}
         ]}
       ],
       optional:[
@@ -134,13 +161,18 @@ const DATA = {
       egg:{word:"Semiquincentennial", joke:"the word for a 250th anniversary — which is exactly how old the USA turns this year. Try saying it after the fireworks."},
       blocks:[
         {slot:"Morning", icon:"📜", activities:[
-          {name:"Independence Reading at the Old State House", cat:"The Fourth",
+          {name:"Independence Reading at the Old State House", cat:"The Fourth", pl:"oldstatehouse",
            notes:"6:30 AM — Mumsy arrives! 9–11 AM: the Declaration of Independence is read from the balcony of the Old State House, just as it was in 1776. A top group pick (score 17) and the most Boston way to spend the Fourth.",
            hours:"9a–11a, July 4",
            address:"206 Washington St, Boston, MA 02109",
            pref:{M:3,Jo:2,D:3,Ji:3,K:3,A:3,total:17},
            transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-blue">Blue</span> — State St. station is at the door.'),
-           imgs:[[wm("Old State House Boston Massachusetts.jpg"),lf("old,state,house,boston",201)],[lf("boston,colonial,history",202)],[lf("july,4th,parade,flag",203)]]}
+           imgs:[[wm("Old State House Boston Massachusetts.jpg"),lf("old,state,house,boston",201)],[lf("boston,colonial,history",202)],[lf("july,4th,parade,flag",203)]]},
+          {name:"King’s Chapel & Burying Ground", cat:"The Fourth", pl:"kingschapelandkingschapelburyingground",
+           notes:"A short walk from the Old State House on the Freedom Trail: Boston's first Anglican church (founded 1686; the granite chapel dates to 1754) and the city's oldest burying ground (1630) right beside it — colonial gravestones and a bell cast by Paul Revere. Peaceful, historic, and very fitting for the Fourth.",
+           hours:"Chapel open most days; burying ground dawn–dusk",
+           address:"58 Tremont St, Boston, MA 02108",
+           transit:T('<span class="line-tag L-blue">Blue</span>/<span class="line-tag L-green">Green</span> — Government Center · <span class="line-tag L-red">Red</span> — Park St.')}
         ]},
         {slot:"Lunch", icon:"🍴", meal:true,
          eatsIntro:"Lunch near the Old State House — Faneuil Hall & Quincy Market are a 3-minute walk, packed with options.",
@@ -173,10 +205,10 @@ const DATA = {
            transit:'<span class="line-tag L-red">Red</span> — Charles/MGH.', maps:mapsQ("restaurants Charles Street Beacon Hill Boston")},
           {n:"Pack a picnic for the Esplanade", nonsea:true, d:"Many families bring blankets + sandwiches to the Hatch Shell lawn. The only dinner where saving your spot matters more than the menu.", walk:"—", maps:mapsQ("sandwich shop downtown Boston")},
           {n:"The Paramount", nonsea:true, d:"Beacon Hill diner institution on Charles St — burgers, brunch plates & comfort food, steps from the Esplanade. Order at the counter.", walk:"Charles St · by the Esplanade", price:"$15–28 pp", transit:'<span class="line-tag L-red">Red</span> — Charles/MGH.', maps:mapsQ("The Paramount Charles Street Boston"), hours:"8 AM–9 PM daily"},
-          {n:"RUKA Restobar", nonsea:true, d:"Sleek downtown spot for Peruvian-Nikkei (Peru meets Japan) — ceviche, tiraditos & maki. Dinner only; a stylish night near the downtown sights.", walk:"Downtown Crossing", price:"$25–40 pp", transit:'<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing.', maps:mapsQ("RUKA Restobar 505 Washington St Boston"), hours:"5–11 PM (Fri/Sat to 12)"}
+          {n:"RUKA Restobar", nonsea:true, pk:"ruka", d:"Sleek downtown spot for Peruvian-Nikkei (Peru meets Japan) — ceviche, tiraditos & maki. Dinner only; a stylish night near the downtown sights.", walk:"Downtown Crossing", price:"$25–40 pp", transit:'<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing.', maps:mapsQ("RUKA Restobar 505 Washington St Boston"), hours:"5–11 PM (Fri/Sat to 12)"}
         ]},
         {slot:"Evening", icon:"🎆", activities:[
-          {name:"July 4th Concert & Fireworks at the Charles River", cat:"The Fourth",
+          {name:"July 4th Concert & Fireworks at the Charles River", cat:"The Fourth", pl:"charlesriveresplanade",
            notes:"The big one — top score of the whole trip (18/18!). Venue opens to the public at 12 PM, concert at 7 PM, fireworks at 9:15 PM over the Charles. You can also watch from the MIT/Cambridge side of the river if the Esplanade is packed.",
            hours:"Venue open 12p · Concert 7p · Fireworks 9:15p",
            address:"DCR Hatch Shell, Esplanade, Boston, MA",
@@ -236,7 +268,7 @@ const DATA = {
            transit:'<span class="line-tag L-red">Red Line</span> — Andrew.', maps:mapsQ("South Bay Center restaurants Boston")},
           {n:"Dave's Hot Chicken", pk:"daveshotchicken", nonsea:true, d:"Really good, crispy & spicy — by the AMC, multiple locations (score 8). Pick your heat level wisely; 'Reaper' is not a dare to win.", walk:"Near AMC", price:"$10–18 pp",
            maps:mapsQ("Dave's Hot Chicken Boston"), hours:"10:30 AM–11 PM (Fri/Sat to 12)"},
-          {n:"Spettus Steak House", nonsea:true, d:"Brazilian churrascaria right in Quincy — all-you-can-eat rodízio of grilled meats, near the AirBnB base. A great group feast after the beach.", walk:"Quincy · near base", price:"$30–45 pp", transit:'<span class="line-tag L-red">Red Line</span> — Quincy Center.', maps:mapsQ("Spettus Steak House Independence Ave Quincy MA"), hours:"11 AM–9 PM (Fri/Sat to 10 · Sun to 8)"}
+          {n:"Spettus Steak House", nonsea:true, pk:"spettusbraziliansteakhouse", d:"Brazilian churrascaria right in Quincy — all-you-can-eat rodízio of grilled meats, near the AirBnB base. A great group feast after the beach.", walk:"Quincy · near base", price:"$30–45 pp", transit:'<span class="line-tag L-red">Red Line</span> — Quincy Center.', maps:mapsQ("Spettus Steak House Independence Ave Quincy MA"), hours:"11 AM–9 PM (Fri/Sat to 10 · Sun to 8)"}
         ]}
       ],
       optional:[
@@ -255,7 +287,7 @@ const DATA = {
       blocks:[
         {slot:"Morning", icon:"🔬", activities:[
           {name:"Museum of Science (+ Planetarium / IMAX / Boat Tour)", cat:"Boston (read with accent)",
-           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check times and consider pairing with the Charles River sightseeing boat tour nearby (more affordable than the duck boat).\n\n🎟️ Free museum pass via library: https://bpl.libcal.com/passes/25815fed11ec",
+           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check times and consider pairing with the Charles River sightseeing boat tour nearby (more affordable than the duck boat).\n\n🎟️ Tip: reserve a free/discounted museum pass with your Boston Public Library card (bpl.org).",
            price:"Gen admission $30 · IMAX Dome $10 ($6 w/ admission) · Planetarium $10 ($6 w/ admission)",
            hours:"Museum 9a–5p · IMAX Dome 11a, 3p · Planetarium 1:30p",
            address:"1 Museum of Science Driveway, Boston, MA 02114",
@@ -318,18 +350,24 @@ const DATA = {
     /* ===================== TUE 7/7 — NEWPORT ===================== */
     {
       dow:"Tuesday", date:"July 7", short:"Newport", emoji:"⛵",
-      theme:"Visit Newport — The Gilded Age", tagline:"Touring 70-room \"summer cottages\" we will absolutely never afford. 🤑",
+      theme:"Visit Newport — The Gilded Age", tagline:"Touring 70-room \"summer cottages\" we will absolutely never afford 🤑 — plus Andy & Naomi join today!",
       egg:{word:"Floccinaucinihilipilification", joke:"the act of judging something as worthless — which is NOT what the Vanderbilts did with their spare gold leaf."},
       blocks:[
         {slot:"Morning", icon:"🏰", activities:[
-          {name:"Newport Mansions — The Breakers & Marble House", cat:"A nice trip",
-           notes:"BEAUTIFUL and LARGE estates — The Breakers, Marble House & more. About 1.5 hr south to Rhode Island. The TV show The Gilded Age was filmed here! A great group day (score 14). Architecture + art + ocean all at once.",
-           price:"$32 – 1 house · $45 – 2 houses · $57 – 3 houses",
-           address:"Bellevue Ave, Newport, RI 02840",
+          {name:"The Breakers", cat:"A nice trip", pl:"newportmansionsthebreakers",
+           notes:"The Vanderbilts' 70-room Gilded-Age palace — the grandest of the Newport Mansions, with a soaring Great Hall and ocean-side loggias. The TV show The Gilded Age was filmed around here! (~1.5 hr drive south.)",
+           price:"$32 – 1 house (combo tickets save)",
+           address:"44 Ochre Point Ave, Newport, RI 02840",
            pref:{M:3,Jo:3,D:1,Ji:1,K:3,A:3,total:14},
            web:"https://www.newportmansions.org/plan-a-visit/mansions-gardens/",
-           transit:T('No subway — this is a drive (~1.5 hr). Free parking at most mansions.'),
-           imgs:[[wm("The Breakers Newport.jpg"),lf("newport,mansion,gilded,age",401)],[wm("Marble House, Newport, Rhode Island.jpg"),lf("mansion,estate,architecture",402)],[lf("newport,rhode,island,ocean,cliff",403)]]}
+           transit:T('No subway — a drive (~1.5 hr). On-site parking at the mansion.')},
+          {name:"Marble House", cat:"A nice trip", pl:"newportmansionsmarblehouse",
+           notes:"Alva Vanderbilt's 1892 marble masterpiece — 500,000 cubic feet of marble, a gilded ballroom, and the Chinese Tea House out on the cliffs. A short hop from The Breakers along Bellevue Ave.",
+           price:"$32 – 1 house · ~$45 for a 2-house combo",
+           address:"596 Bellevue Ave, Newport, RI 02840",
+           pref:{M:3,Jo:3,D:1,Ji:1,K:3,A:3,total:14},
+           web:"https://www.newportmansions.org/plan-a-visit/mansions-gardens/",
+           transit:T('On Bellevue Ave, ~5-min drive from The Breakers.')}
         ]},
         {slot:"Lunch", icon:"🍖", meal:true,
          eatsIntro:"Lunch on the way down — Triple S Craft BBQ in Seekonk is right off the route to Newport.",
@@ -340,12 +378,16 @@ const DATA = {
           {n:"Flo's Clam Shack", seafood:true, d:"Newport-area clam-shack icon — fried clams, lobster rolls & chowder, casual and right by the beach (Middletown).", walk:"Middletown · near Newport beaches", price:"$15–30 pp", maps:mapsQ("Flo's Clam Shack Middletown RI"), hours:"11 AM–9 PM daily (seasonal)"}
         ]},
         {slot:"Afternoon", icon:"🌊", activities:[
-          {name:"Cliff Walk & Newport Harbor", cat:"A nice trip",
-           notes:"After the mansions, walk part of the famous 3.5-mile Cliff Walk — mansions on one side, crashing Atlantic on the other. Then wander the harbor and Thames Street shops before dinner.",
+          {name:"Cliff Walk", cat:"A nice trip", pl:"cliffwalk",
+           notes:"The famous 3.5-mile public path where Newport's mansions meet the crashing Atlantic — estates on one side, ocean on the other. Walk as much or as little as you like.",
            address:"Cliff Walk, Newport, RI 02840",
            pref:{M:3,Jo:3,D:1,Ji:1,K:3,A:3,total:14},
-           transit:T('Walkable from Bellevue Ave; free street parking around the wharves.'),
-           imgs:[[wm("Newport Cliff Walk.jpg"),lf("cliff,walk,newport,ocean",404)],[lf("newport,harbor,sailboat",405)],[lf("rhode,island,coast,atlantic",406)]]}
+           transit:T('Trailheads near Memorial Blvd & Narragansett Ave; some uneven footing — wear good shoes.')},
+          {name:"Newport Harbor", cat:"A nice trip", pl:"newportharbor",
+           notes:"Wind down by the water — wander Thames Street and Bowen's/Bannister's Wharf, watch the sailboats, grab ice cream and shop before dinner.",
+           address:"Bowen's Wharf, Newport, RI 02840",
+           pref:{M:3,Jo:3,D:1,Ji:1,K:3,A:3,total:14},
+           transit:T('Walkable around the wharves; metered/lot parking downtown.')}
         ]},
         {slot:"Dinner", icon:"🦞", meal:true,
          eatsIntro:"Dinner in Newport near the mansions/harbor — seafood standouts PLUS non-seafood options (burgers & tacos) so everyone's happy. All roughly $10–40 pp.",
@@ -378,7 +420,7 @@ const DATA = {
       blocks:[
         {slot:"Morning", icon:"🎨", activities:[
           {name:"Isabella Stewart Gardner Museum", cat:"Boston (read with accent)",
-           notes:"A fabulous Venetian-style palace full of fine art — looks like Downton Abbey and The Gilded Age. The trip's joint top pick (score 18!). Timed entry; free Thursday nights 5–9 PM (sign up 2 days ahead). Somerville library discount may apply.\n\n🎟️ Library pass: https://bpl.libcal.com/passes/3f1a0abfb37f",
+           notes:"A fabulous Venetian-style palace full of fine art — looks like Downton Abbey and The Gilded Age. The trip's joint top pick (score 18!). Timed entry; free Thursday nights 5–9 PM (sign up 2 days ahead). Somerville library discount may apply.\n\n🎟️ Tip: reserve a discounted pass with your library card (bpl.org).",
            price:"$22 timed entry · FREE Thu 5–9p (register 2 days ahead)",
            hours:"Mon/Wed/Fri 11a–5p · Thu 11a–9p · Sat/Sun 10a–5p (Closed Tue)",
            address:"25 Evans Way, Boston, MA 02115",
@@ -406,7 +448,7 @@ const DATA = {
            transit:T('<span class="line-tag L-orange">Orange Line</span> — Back Bay or Tufts Medical Center.'),
            imgs:[[wm("Cathedral of the Holy Cross, Boston, Massachusetts.jpg"),lf("gothic,cathedral,church",504)],[lf("cathedral,stained,glass,interior",505)]]},
           {name:"Mary Baker Eddy Library & the Mapparium", cat:"Boston (read with accent)",
-           notes:"Step inside a three-story stained-glass globe you can walk through — the Mapparium — at the Christian Science Plaza. Stunning reflecting pool & architecture outside.\n\n🎟️ Library pass: https://bpl.libcal.com/passes/ee42fe43a508",
+           notes:"Step inside a three-story stained-glass globe you can walk through — the Mapparium — at the Christian Science Plaza. Stunning reflecting pool & architecture outside.\n\n🎟️ Tip: reserve a pass with your library card (bpl.org).",
            address:"200 Massachusetts Ave, Boston, MA 02115",
            pref:{M:2,Jo:1,D:2,Ji:2,K:3,A:3,total:13},
            transit:T('<span class="line-tag L-green">Green Line E</span> — Symphony or Prudential.'),
@@ -431,8 +473,8 @@ const DATA = {
            maps:"https://maps.app.goo.gl/TsGp2LR9ppATwL679", hours:"10:30 AM–9:30 PM (Fri/Sat to 10:30)"},
           {n:"Newbury Street restaurants", nonsea:true, d:"50+ cafés & restaurants along the brownstones — pizza, sushi, French, you name it. Pick your cuisine.", walk:"1–5 min walk ★", price:"$15–40 pp",
            transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Newbury Street restaurants Boston")},
-          {n:"Fogo de Chão", nonsea:true, d:"Brazilian steakhouse on Dartmouth St by Copley — endless rodízio of fire-roasted meats carved tableside, plus a big market table. The Back Bay splurge.", walk:"Back Bay · Dartmouth St", price:"$$ · rodízio", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Fogo de Chao 200 Dartmouth St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 10:30)"},
-          {n:"Atlantic Fish Co.", seafood:true, d:"Boylston St seafood mainstay — daily fresh catch printed on the menu, a classic raw bar & a sidewalk patio.", walk:"Boylston St · 5 min", price:"$25–40 pp", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Atlantic Fish Co Boylston St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 11)"},
+          {n:"Fogo de Chão", nonsea:true, pk:"fogodechao", d:"Brazilian steakhouse on Dartmouth St by Copley — endless rodízio of fire-roasted meats carved tableside, plus a big market table. The Back Bay splurge.", walk:"Back Bay · Dartmouth St", price:"$$ · rodízio", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Fogo de Chao 200 Dartmouth St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 10:30)"},
+          {n:"Atlantic Fish Co.", seafood:true, pk:"atlanticfishcompany", d:"Boylston St seafood mainstay — daily fresh catch printed on the menu, a classic raw bar & a sidewalk patio.", walk:"Boylston St · 5 min", price:"$25–40 pp", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Atlantic Fish Co Boylston St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 11)"},
           {n:"Stephanie's on Newbury", nonsea:true, d:"Newbury St comfort-food favorite — big salads, sandwiches, brunch & prime people-watching on the patio.", walk:"Newbury St · 3 min", price:"$18–32 pp", transit:'<span class="line-tag L-green">Green</span> — Copley/Arlington.', maps:mapsQ("Stephanie's on Newbury Boston"), hours:"11 AM–10 PM (Fri/Sat to 11)"}
         ]}
       ],
@@ -452,7 +494,7 @@ const DATA = {
       blocks:[
         {slot:"Morning", icon:"☕", activities:[
           {name:"Pack up & final breakfast", cat:"Logistics",
-           notes:"Travel day. Grab one last pastry or breakfast, do a final beach walk if there's time, and head out. Don't forget allergy meds & the card games!",
+           notes:"Travel day. Grab one last pastry or breakfast, do a final beach walk if there's time, and head out. Don't forget your meds & the card games!",
            transit:T('<span class="line-tag L-red">Red Line</span> connects Quincy to South Station & the airport (via Silver Line).')}
         ]},
         {slot:"Optional — for anyone staying", icon:"⚽", activities:[
@@ -507,10 +549,10 @@ const DATA = {
     '<b>Scale:</b> 1 = ok · 2 = ooh · 3 = YASS. Each activity card shows everyone\'s scores + the group total.</div>'+
     '<h3 style="color:var(--ocean-deep)">📌 From the planning sheet</h3>'+
     '<div class="opt">• <b>David</b> chooses a birthday restaurant for a lunch/dinner (Carmelina\'s in the North End is teed up!).</div>'+
-    '<div class="opt">• Maybe invite <b>Andy / Naomi</b> to join some plans (they\'re around Mon 7/6 &amp; Thu 7/9).</div>'+
+    '<div class="opt">• <b>Andy &amp; Naomi</b> join just for the <b>Newport day trip (Tue 7/7)</b>.</div>'+
     '<div class="opt">• Bring 1–2 fun card games &amp; <b>Johnny bring Clue</b>.</div>'+
     '<div class="opt">• <b>Pack a swimsuit</b> (water may be chilly) for Wollaston Beach.</div>'+
-    '<div class="opt">• <b>Bring allergy medicine</b> — Claritin / Zyrtec.</div>'+
+    '<div class="opt">• <b>Pack any personal meds</b> you may need.</div>'+
     '<div class="opt">• Home movies: Enola 3, Life Larry, The Pursuit of Unhappiness.</div>'+
     '<h3 style="color:var(--ocean-deep)">🚇 Getting around (MBTA)</h3>'+
     '<div class="opt">The <span class="line-tag L-red">Red Line</span> links your Quincy base to downtown. Grab a <b>CharlieCard</b>; a 7-day LinkPass gives unlimited subway + bus. ★ on any card means it\'s a short walk from a subway/bus stop.</div>'+
@@ -522,5 +564,17 @@ const DATA = {
     '<div class="opt">• <b>Middlesex Fells + Stone Zoo</b> (Stoneham) — pair with a whale-watch day.</div>'+
     '<div class="opt">• <b>Trapology Escape Room</b> at Boston Common · <b>Charles River sightseeing boat</b> by the Museum of Science.</div>'+
     '<p style="font-size:13px;color:#667;margin-top:14px">Built from your "Boston 2026" planning sheet (Preference Score + Itinerary tabs). Photos are illustrative and self-healing; tap "See real photos" on any card for live Google Maps galleries.</p>'+
-    '</div>'
+    '</div>',
+
+  /* ===================== CREW TAB ===================== */
+  photosUrl:"https://photos.google.com/share/AF1QipMdNYLKZ_krqiQG7_5qjMOsQcYMvlFuCJkh4e03VBt_bfjOF4-uWrGLmgisNCFFNg?pli=1",
+  membersIntro:"The travelers on this New England adventure — and their official trip personas. (The letters match the preference scores on every activity card.)",
+  members:[
+    {name:"Mom", code:"M", color:"#ffd9e0", emoji:"👩", toon:{c:"#ff7eb6",acc:"bow"}, blurb:"Trip matriarch &amp; chief pastry enthusiast — rated Mike's cannoli a <b>4 out of 3</b>. 🥐", fav:"Pastries, pretty churches &amp; the beach"},
+    {name:"Johnny", code:"Jo", color:"#c4e9d6", emoji:"🧑", toon:{c:"#46c2c2",acc:"sun"}, blurb:"The easygoing one — lives near Harvard, happy anywhere, on Clue duty. 🎲", fav:"Chilling in palaces — the Gardner courtyard &amp; the Newport mansions 🏛️"},
+    {name:"David", code:"D", color:"#bcd9f2", emoji:"🧔", toon:{c:"#8a78e0",acc:"party"}, blurb:"Birthday boy! 🎂 Gets to pick a birthday dinner — Carmelina's is calling.", fav:"North End Italian &amp; oysters"},
+    {name:"Jillene", code:"Ji", color:"#f7dcb6", emoji:"👩‍🦰", toon:{c:"#ff9f43",acc:"antennae"}, blurb:"David's partner in (culinary) crime — twin taste buds, all-in on seafood. 🦪", fav:"Neptune Oyster &amp; cannoli"},
+    {name:"Kevin", code:"K", color:"#d8c2f2", emoji:"🧑‍💻", toon:{c:"#5b8def",acc:"glasses"}, blurb:"Resident planner &amp; science nerd — museums, the Mapparium &amp; all things FIFA. ⚽", fav:"Museum of Science &amp; the World Cup"},
+    {name:"Amanda", code:"A", dino:true, emoji:"🦖", color:"#cdebc9", toon:{c:"#5fbf5f",dino:true}, blurb:"Officially a <b>dinosaur</b> for this trip. 🦖 Roars for science, art &amp; a proper lobster roll.", fav:"Isabella Gardner, escape rooms &amp; RAWR"}
+  ]
 };

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Boston 2026 — Guzman Family Vacation 🦞</title>
+<title>Boston 2026 — Family Vacation 🦞</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,20 +29,28 @@
 <div class="lobster-decal hidden-lob" style="width:32px;height:40px;bottom:40%;right:3%;transform:rotate(28deg)"></div>
 
 <header class="site">
-  <p class="kicker">🦞 The Guzman Family Vacation 🦞</p>
+  <p class="kicker">🦞 The Family Vacation 🦞</p>
   <h1>Boston &amp; Beyond 2026</h1>
   <p class="dates">Friday, July 3 &ndash; Thursday, July 9, 2026 &bull; Boston &amp; Quincy, MA &bull; Newport, RI</p>
+  <div id="countdown" class="countdown"></div>
 </header>
 
 <nav class="tabs">
-  <button id="tab-itin" class="active" onclick="showView('itin')">📅 Itinerary</button>
+  <button id="tab-crew" class="active" onclick="showView('crew')">👥 Ocean Six</button>
+  <button id="tab-itin" onclick="showView('itin')">📅 Itinerary</button>
   <button id="tab-fifa" onclick="showView('fifa')">⚽ FIFA 2026</button>
   <button id="tab-info" onclick="showView('info')">ℹ️ Trip Notes</button>
 </nav>
 
+<!-- Floating photo-album button (visible on every tab) -->
+<a id="fab-photos" class="fab" target="_blank" rel="noopener" title="Shared trip photo album">📸 <span class="lbl">Add / view photos</span></a>
+
 <main>
+  <!-- CREW VIEW -->
+  <section id="view-crew"></section>
+
   <!-- ITINERARY VIEW -->
-  <section id="view-itin">
+  <section id="view-itin" class="hidden">
     <div class="day-pills" id="dayPills"></div>
     <div id="dayContent"></div>
   </section>
@@ -55,7 +63,9 @@
 </main>
 
 <footer>
-  <div class="lob">🦞🦞🦞</div>
+  <div class="lob" title="Tap to make it rain 🦞">🦞🦞🦞</div>
+  <div class="lob-hint">👆 psst — tap the lobsters!</div>
+  <p id="lobPun" class="lob-pun"></p>
   <p>Made with love for the family &bull; Tap any activity to expand details, scores, photos &amp; maps.<br>
   ★ = short walk to a subway/bus stop &bull; 🦞 Seafood &bull; 🍗 Non-seafood option &bull; tap “Google photos” / “Yelp photos” for even more.</p>
 </footer>
