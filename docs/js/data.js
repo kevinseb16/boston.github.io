@@ -59,6 +59,7 @@ const PLACE_PHOTOS = {
   "bostonpubliclibrary":["images/places/Boston%20Public%20Library-1.png","images/places/Boston%20Public%20Library-2.png","images/places/Boston%20Public%20Library-3.png","images/places/Boston%20Public%20Library-4.png","images/places/Boston%20Public%20Library-5.png","images/places/Boston%20Public%20Library-6.png"],
   "bostonteapartyshipsmuseum":["images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-1.png","images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-2.png","images/places/Boston%20Tea%20Party%20Ships%20&%20Museum-3.png"],
   "cathedraloftheholycross":["images/places/Cathedral%20of%20the%20Holy%20Cross-1.png","images/places/Cathedral%20of%20the%20Holy%20Cross-2.png","images/places/Cathedral%20of%20the%20Holy%20Cross-3.png","images/places/Cathedral%20of%20the%20Holy%20Cross-4.png","images/places/Cathedral%20of%20the%20Holy%20Cross-5.png"],
+  "charlesriverboattour":["images/places/Charles%20River%20Boat%20Tour-1.jpg","images/places/Charles%20River%20Boat%20Tour-2.jpg"],
   "charlesriveresplanade":["images/places/Charles%20River%20Esplanade-1.png","images/places/Charles%20River%20Esplanade-2.png","images/places/Charles%20River%20Esplanade-3.png","images/places/Charles%20River%20Esplanade-4.png","images/places/Charles%20River%20Esplanade-5.png","images/places/Charles%20River%20Esplanade-6.png"],
   "cliffwalk":["images/places/Cliff%20Walk-1.png","images/places/Cliff%20Walk-2.png","images/places/Cliff%20Walk-3.png","images/places/Cliff%20Walk-4.png","images/places/Cliff%20Walk-5.png","images/places/Cliff%20Walk-6.png"],
   "isabellastewartgardnermuseum":["images/places/Isabella%20Stewart%20Gardner%20Museum-1.png","images/places/Isabella%20Stewart%20Gardner%20Museum-2.png","images/places/Isabella%20Stewart%20Gardner%20Museum-3.png","images/places/Isabella%20Stewart%20Gardner%20Museum-4.png"],
@@ -286,14 +287,20 @@ const DATA = {
       egg:{word:"Precipitevolissimevolmente", joke:"the longest word in Italian (\"very hastily\") — also how fast that third cannoli will disappear."},
       blocks:[
         {slot:"Morning", icon:"🔬", activities:[
-          {name:"Museum of Science (+ Planetarium / IMAX / Boat Tour)", cat:"Boston (read with accent)",
-           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check times and consider pairing with the Charles River sightseeing boat tour nearby (more affordable than the duck boat).\n\n🎟️ Tip: reserve a free/discounted museum pass with your Boston Public Library card (bpl.org).",
+          {name:"Museum of Science (+ Planetarium / IMAX)", cat:"Boston (read with accent)",
+           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check the IMAX & planetarium showtimes when you arrive.\n\n🎟️ Tip: reserve a free/discounted museum pass with your Boston Public Library card (bpl.org).",
            price:"Gen admission $30 · IMAX Dome $10 ($6 w/ admission) · Planetarium $10 ($6 w/ admission)",
            hours:"Museum 9a–5p · IMAX Dome 11a, 3p · Planetarium 1:30p",
            address:"1 Museum of Science Driveway, Boston, MA 02114",
            pref:{M:2,Jo:2,D:2,Ji:2,K:3,A:3,total:14},
            transit:T('<span class="line-tag L-green">Green Line</span> — Science Park/West End is right outside.'),
-           imgs:[[wm("Museum of Science, Boston, Massachusetts.jpg"),lf("museum,science,dinosaur",301)],[lf("planetarium,space,stars",302)],[lf("charles,river,boat,boston",303)]]}
+           imgs:[[wm("Museum of Science, Boston, Massachusetts.jpg"),lf("museum,science,dinosaur",301)],[lf("planetarium,space,stars",302)],[lf("charles,river,boat,boston",303)]]},
+          {name:"Charles River Boat Tour", cat:"Boston (read with accent)", pl:"charlesriverboattour",
+           notes:"A separate stop — but right by the Museum of Science. A relaxed narrated cruise on the Charles with skyline & Esplanade views (more affordable than the duck boats). Note from the sheet: Mom says it's the river tour OR whale watching — not both.",
+           price:"≈ $30 pp",
+           address:"Charles River, near the Museum of Science, Boston",
+           pref:{M:2,Jo:2,D:2,Ji:2,K:2,A:3,total:13},
+           transit:T('<span class="line-tag L-green">Green Line</span> — Science Park/West End, then a short walk to the dock.')}
         ]},
         {slot:"Lunch", icon:"🍝", meal:true,
          eatsIntro:"Lunch in the North End — the plan is Carmelinas. Italian heaven within a couple blocks of every afternoon stop.",

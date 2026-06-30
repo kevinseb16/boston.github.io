@@ -98,9 +98,14 @@
   /* ---- Day selector ---- */
   /* ---- Day selector as a winding road of milestones (dots zigzag above/below) ---- */
   .day-pills{
-    position:relative;
-    display:flex; align-items:stretch; justify-content:space-between;
-    gap:0; margin:22px 0 14px; padding:2px 2px; overflow-x:auto; overflow-y:visible; min-height:250px;
+    margin:22px 0 14px; padding:2px 2px; overflow-x:auto; overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+  }
+  /* track holds the flex row AND the SVG road, so both share the exact same width
+     (even when it's wider than the screen and scrolls) */
+  .road-track{
+    position:relative; display:flex; align-items:stretch; justify-content:space-between;
+    min-width:100%; min-height:250px;
   }
   .milestone{
     position:relative; flex:1 0 auto; min-width:122px; height:250px;
@@ -134,12 +139,16 @@
   .milestone.active .ms-dow{ color:var(--lobster-dark); }
   .milestone.active .ms-theme{ font-weight:600; }
   @media(max-width:560px){
-    .day-pills{min-height:224px;}
-    .milestone{min-width:104px; height:224px;}
-    .ms-dot{width:42px; height:42px; font-size:20px;}
-    .ms-label{width:100px;}
-    .milestone.up .ms-dot{top:calc(34% - 21px);} .milestone.up .ms-label{bottom:calc(66% + 24px);}
-    .milestone.down .ms-dot{top:calc(66% - 21px);} .milestone.down .ms-label{top:calc(66% + 24px);}
+    .day-pills{min-height:214px;}
+    .road-track{min-height:214px;}
+    .milestone{min-width:88px; height:214px;}
+    .ms-dot{width:36px; height:36px; font-size:18px; border-width:2.5px;}
+    .ms-label{width:84px;}
+    .ms-dow{font-size:13px;}
+    .ms-date{font-size:11px;}
+    .ms-theme{font-size:11px; line-height:1.12;}
+    .milestone.up .ms-dot{top:calc(34% - 18px);}  .milestone.up .ms-label{bottom:calc(66% + 22px);}
+    .milestone.down .ms-dot{top:calc(66% - 18px);} .milestone.down .ms-label{top:calc(66% + 22px);}
   }
   /* ---- Day header banner ---- */
   .day-banner{

@@ -258,7 +258,7 @@ function renderPills(){
        '<span class="ms-label"><span class="ms-dow">'+dow+'</span><span class="ms-date">'+d.date+'</span><span class="ms-theme">'+(d.short||d.theme)+'</span></span>'+
        '</button>';
   });
-  document.getElementById('dayPills').innerHTML=h;
+  document.getElementById('dayPills').innerHTML='<div class="road-track">'+h+'</div>';
 }
 function selectDay(i){
   activeDay=i; renderPills();
