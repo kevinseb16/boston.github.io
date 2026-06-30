@@ -104,8 +104,8 @@
   /* track holds the flex row AND the SVG road, so both share the exact same width
      (even when it's wider than the screen and scrolls) */
   .road-track{
-    position:relative; display:flex; align-items:stretch; justify-content:space-between;
-    min-width:100%; min-height:250px;
+    position:relative; display:inline-flex; align-items:stretch; justify-content:space-between;
+    width:max-content; min-width:100%; min-height:250px;
   }
   .milestone{
     position:relative; flex:1 0 auto; min-width:122px; height:250px;
