@@ -18,28 +18,36 @@ function yelpQ(name,loc){return "https://www.yelp.com/search?find_desc="+encodeU
    Keyed by restaurant name (letters+digits only, lowercased).
    ========================================================= */
 const FOOD_PHOTOS = {
+  "anticoforno":["images/food/Antico%20Forno-1.png","images/food/Antico%20Forno-2.png","images/food/Antico%20Forno-3.png","images/food/Antico%20Forno-4.png","images/food/Antico%20Forno-5.png","images/food/Antico%20Forno-6.png","images/food/Antico%20Forno-7.png","images/food/Antico%20Forno-8.png"],
   "carmelinas":["images/food/Carmelina_s-1.png","images/food/Carmelina_s-2.png","images/food/Carmelina_s-3.png","images/food/Carmelina_s-4.png","images/food/Carmelina_s-5.png","images/food/Carmelina_s-6.png","images/food/Carmelina_s-7.png","images/food/Carmelina_s-8.png","images/food/Carmelina_s-9.png","images/food/Carmelina_s-10.png"],
   "daveshotchicken":["images/food/Dave_s%20Hot%20Chicken-1.png","images/food/Dave_s%20Hot%20Chicken-2.png"],
   "gordonramsey":["images/food/Gordon%20Ramsey-1.png","images/food/Gordon%20Ramsey-2.png","images/food/Gordon%20Ramsey-3.png","images/food/Gordon%20Ramsey-4.png"],
   "jirossushi":["images/food/Jiro%E2%80%98s%20Sushi-1.png","images/food/Jiro%E2%80%98s%20Sushi-2.png","images/food/Jiro%E2%80%98s%20Sushi-3.png","images/food/Jiro%E2%80%98s%20Sushi-4.png","images/food/Jiro%E2%80%98s%20Sushi-5.png"],
+  "legalseafoods":["images/food/Legal%20Sea%20Foods-1.png","images/food/Legal%20Sea%20Foods-2.png","images/food/Legal%20Sea%20Foods-3.png","images/food/Legal%20Sea%20Foods-4.png","images/food/Legal%20Sea%20Foods-5.png","images/food/Legal%20Sea%20Foods-6.png"],
   "manaescondidocafe":["images/food/Mana%CC%80%20Escondido%20Cafe-1.png","images/food/Mana%CC%80%20Escondido%20Cafe-2.png","images/food/Mana%CC%80%20Escondido%20Cafe-4.png","images/food/Mana%CC%80%20Escondido%20Cafe-5.png"],
   "mikespastry":["images/food/Mike_s%20Pastry-1.png","images/food/Mike_s%20Pastry-2.png","images/food/Mike_s%20Pastry-3.png","images/food/Mike_s%20Pastry-4.png","images/food/Mike_s%20Pastry-6.png"],
   "modernpastryshop":["images/food/Modern%20Pastry%20Shop-1.png","images/food/Modern%20Pastry%20Shop-2.png","images/food/Modern%20Pastry%20Shop-3.png"],
   "monicasmercato":["images/food/Monica_s%20Mercato-1.png","images/food/Monica_s%20Mercato-2.png","images/food/Monica_s%20Mercato-3.png","images/food/Monica_s%20Mercato-4.png","images/food/Monica_s%20Mercato-5.png"],
   "neptuneoyster":["images/food/Neptune%20Oyster-1.png","images/food/Neptune%20Oyster-2.png","images/food/Neptune%20Oyster-3.png","images/food/Neptune%20Oyster-4.png","images/food/Neptune%20Oyster-5.png"],
   "quincymarket":["images/food/Quincy%20Market-1.png","images/food/Quincy%20Market-2.png","images/food/Quincy%20Market-3.png","images/food/Quincy%20Market-4.png","images/food/Quincy%20Market-5.png"],
+  "raisingcanes":["images/food/Raising%20Cane_s-1.png","images/food/Raising%20Cane_s-2.png","images/food/Raising%20Cane_s-3.png","images/food/Raising%20Cane_s-4.png","images/food/Raising%20Cane_s-5.png"],
   "saltiegirl":["images/food/Saltie%20Girl-1.png","images/food/Saltie%20Girl-2.png","images/food/Saltie%20Girl-3.png","images/food/Saltie%20Girl-4.png","images/food/Saltie%20Girl-5.png","images/food/Saltie%20Girl-6.png"],
   "sarvaindiancuisine":["images/food/Sarva%20Indian%20Cuisine-1.png","images/food/Sarva%20Indian%20Cuisine-2.png","images/food/Sarva%20Indian%20Cuisine-3.png","images/food/Sarva%20Indian%20Cuisine-4.png","images/food/Sarva%20Indian%20Cuisine-5.png","images/food/Sarva%20Indian%20Cuisine-6.png","images/food/Sarva%20Indian%20Cuisine-7.png","images/food/Sarva%20Indian%20Cuisine-8.png","images/food/Sarva%20Indian%20Cuisine-9.png"],
   "sweetcheeksq":["images/food/Sweet%20Cheeks%20Q-1.png","images/food/Sweet%20Cheeks%20Q-2.png","images/food/Sweet%20Cheeks%20Q-3.png","images/food/Sweet%20Cheeks%20Q-4.png","images/food/Sweet%20Cheeks%20Q-5.png"],
   "tattebakerycafe":["images/food/Tatte%20Bakery%20&%20Cafe-1.png","images/food/Tatte%20Bakery%20&%20Cafe-2.png","images/food/Tatte%20Bakery%20&%20Cafe-3.png","images/food/Tatte%20Bakery%20&%20Cafe-4.png","images/food/Tatte%20Bakery%20&%20Cafe-5.png","images/food/Tatte%20Bakery%20&%20Cafe-6.png","images/food/Tatte%20Bakery%20&%20Cafe-7.png","images/food/Tatte%20Bakery%20&%20Cafe-8.png"],
+  "thegreatestbar":["images/food/The%20Greatest%20Bar-1.png","images/food/The%20Greatest%20Bar-2.png","images/food/The%20Greatest%20Bar-3.png","images/food/The%20Greatest%20Bar-4.png","images/food/The%20Greatest%20Bar-5.png"],
+  "themooringseafoodkitchenbar":["images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-1.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-2.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-3.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-4.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-5.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-6.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-7.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-8.png","images/food/The%20Mooring%20Seafood%20Kitchen%20&%20Bar-9.png"],
+  "tonysclamshop":["images/food/Tony_s%20Clam%20Shop-1.png","images/food/Tony_s%20Clam%20Shop-2.png","images/food/Tony_s%20Clam%20Shop-3.png","images/food/Tony_s%20Clam%20Shop-4.png","images/food/Tony_s%20Clam%20Shop-5.png","images/food/Tony_s%20Clam%20Shop-6.png"],
   "triplescraftbbq":["images/food/Triple%20S%20Craft%20BBQ-1.png","images/food/Triple%20S%20Craft%20BBQ-2.png","images/food/Triple%20S%20Craft%20BBQ-3.png","images/food/Triple%20S%20Craft%20BBQ-4.png"],
-  "vejigantesrestaurant":["images/food/Vejigantes%20Restaurant-1.png","images/food/Vejigantes%20Restaurant-2.png","images/food/Vejigantes%20Restaurant-3.png","images/food/Vejigantes%20Restaurant-4.png","images/food/Vejigantes%20Restaurant-5.png","images/food/Vejigantes%20Restaurant-6.png","images/food/Vejigantes%20Restaurant-7.png","images/food/Vejigantes%20Restaurant-8.png"]
+  "unionoysterhouse":["images/food/Union%20Oyster%20House-1.png","images/food/Union%20Oyster%20House-2.png","images/food/Union%20Oyster%20House-3.png","images/food/Union%20Oyster%20House-4.png","images/food/Union%20Oyster%20House-5.png","images/food/Union%20Oyster%20House-6.png","images/food/Union%20Oyster%20House-7.png","images/food/Union%20Oyster%20House-8.png"],
+  "vejigantesrestaurant":["images/food/Vejigantes%20Restaurant-1.png","images/food/Vejigantes%20Restaurant-2.png","images/food/Vejigantes%20Restaurant-3.png","images/food/Vejigantes%20Restaurant-4.png","images/food/Vejigantes%20Restaurant-5.png","images/food/Vejigantes%20Restaurant-6.png","images/food/Vejigantes%20Restaurant-7.png","images/food/Vejigantes%20Restaurant-8.png"],
+  "warehousekitchensportsbar":["images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-1.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-2.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-3.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-4.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-5.png","images/food/Warehouse%20Kitchen%20+%20Sports%20Bar-6.png"]
 };
 function pkey(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"");}
 function eatPhotos(e){
   let arr = FOOD_PHOTOS[e.pk || pkey(e.n)];
   if(!arr || !arr.length) return [];
-  return arr.slice(0,5).map(p=>[p]);   // cap at 5 per spot (matches the 4–5 guideline)
+  return arr.map(p=>[p]);   // show ALL photos for this spot
 }
 /* first n photos for a key, as gallery chains (used by the North End bakery crawl card) */
 function pics(key,n){
@@ -91,7 +99,9 @@ const DATA = {
           {n:"Indian food near Kendall / Central Sq", d:"Group favorite (score 13). Several well-rated Indian spots a short walk from MIT.", walk:"5–12 min walk from MIT", price:"$12–25 pp",
            transit:'<span class="line-tag L-red">Red Line</span> — Kendall/MIT or Central.', maps:mapsQ("Indian restaurant near Kendall Square Cambridge MA")},
           {n:"Tatte Bakery & Cafe (Kendall Sq)", pk:"tattebakerycafe", nonsea:true, d:"Boston classic — fancy sandwiches, salads & pastries if you want something quick and pretty. (Zero lobsters were harmed.)", walk:"On campus / Kendall", price:"$12–20 pp",
-           maps:mapsQ("Tatte Bakery Kendall Square Cambridge")}
+           maps:mapsQ("Tatte Bakery Kendall Square Cambridge"), hours:"7 AM–7:30 PM (Sun to 6:30)"},
+          {n:"Flour Bakery + Cafe", nonsea:true, d:"Joanne Chang's beloved bakery-cafe — sandwiches, big salads & the famous sticky buns. A Cambridge classic.", walk:"Cambridge · near Central/Kendall", price:"$12–20 pp", transit:'<span class="line-tag L-red">Red Line</span> — Central or Kendall/MIT.', maps:mapsQ("Flour Bakery Cambridge MA"), hours:"Mon–Fri 7 AM–7 PM · Sat/Sun 8 AM–6 PM"},
+          {n:"Mr. Bartley's Burger Cottage", nonsea:true, d:"Harvard Square institution since 1960 — a wild, punny burger menu plus frappes & onion rings. Close to Johnny's place.", walk:"Harvard Sq", price:"$15–22 pp", transit:'<span class="line-tag L-red">Red Line</span> — Harvard.', maps:mapsQ("Mr. Bartley's Burger Cottage Cambridge MA"), hours:"Tue–Sat 11 AM–8 PM · Mon & Sun to 4 PM"}
         ]},
         {slot:"Afternoon", icon:"🏠", activities:[
           {name:"Check into the AirBnB", cat:"Logistics",
@@ -101,9 +111,13 @@ const DATA = {
         {slot:"Dinner", icon:"🦞", meal:true,
          eatsIntro:"Welcome-to-New-England seafood dinner — the plan is Legal Sea Foods in Braintree, close to the South Shore base.",
          eats:[
-          {n:"Legal Sea Foods — Braintree", seafood:true, d:"New England seafood institution. Clam chowder, lobster, fresh fish — easy, reliable first night.", walk:"Drive · South Shore Plaza", price:"$20–40 pp",
-           transit:'<span class="line-tag L-red">Red Line</span> — Braintree (terminus).', maps:mapsQ("Legal Sea Foods Braintree MA")},
-          {n:"Lobster — all day, every day 🦞", seafood:true, d:"Family motto (score 13). Wherever you land, get the lobster.", walk:"—", maps:mapsQ("lobster restaurant Braintree Quincy MA")}
+          {n:"Legal Sea Foods — Braintree", seafood:true, pk:"legalseafoods", d:"New England seafood institution. Clam chowder, lobster, fresh fish — easy, reliable first night.", walk:"Drive · South Shore Plaza", price:"$20–40 pp",
+           transit:'<span class="line-tag L-red">Red Line</span> — Braintree (terminus).', maps:mapsQ("Legal Sea Foods Braintree MA"), hours:"Mon–Thu 11:30 AM–10 PM · Fri/Sat to 11 · Sun 10 AM–9 PM"},
+          {n:"Yankee Lobster Co.", seafood:true, d:"Living the family motto (score 13): wherever you land, get the lobster. This casual, family-run Seaport fish market & shack (since 1950) does lobster rolls, whole steamed lobster & chowder — counter service, no fuss.", walk:"Seaport · ~15 min drive from the South Shore base", price:"$15–35 pp",
+           transit:'<span class="line-tag L-silver">Silver Line</span> — SL1/SL2 to Seaport.', maps:mapsQ("Yankee Lobster Co 300 Northern Ave Boston"), hours:"11 AM–8 PM (Thu–Sat to 9)"},
+          {n:"More near the base — Quincy Center & Marina Bay", nonsea:true, d:"A short drive from the AirBnB: steakhouses & gastropubs in Quincy Center, waterfront patios at Marina Bay, plus Quincy's huge Asian food scene (Cantonese, Vietnamese, Korean).", walk:"Quincy · short drive", price:"$12–35 pp", transit:'<span class="line-tag L-red">Red Line</span> — Quincy Center / North Quincy.', maps:mapsQ("restaurants Quincy Center MA")},
+          {n:"Machu Picchu Boston", nonsea:true, d:"Peruvian in Somerville near Johnny's place — lomo saltado, rotisserie chicken & more. A big group favorite on the sheet (score 17!).", walk:"Somerville · near Cambridge", price:"$15–30 pp", transit:'<span class="line-tag L-red">Red Line</span> — Davis/Porter + short ride.', maps:mapsQ("Machu Picchu 307 Somerville Ave Somerville MA"), hours:"11:30 AM–9 PM (Fri to 10, Sat to 11)"},
+          {n:"Midwest Grill (Brazilian churrascaria)", nonsea:true, d:"All-you-can-eat Brazilian rodizio in Cambridge's Inman Square — skewers of grilled meats carved tableside. Bring an appetite.", walk:"Cambridge · Inman Sq", price:"$25–40 pp", transit:'<span class="line-tag L-red">Red Line</span> — Central + short ride.', maps:mapsQ("Midwest Grill Cambridge MA"), hours:"Mon–Sat 11:30 AM–11 PM (closed Sun)"}
         ]}
       ],
       optional:[
@@ -134,11 +148,14 @@ const DATA = {
           {n:"Quincy Market / Faneuil Hall Marketplace", pk:"quincymarket", nonsea:true, d:"Historic food hall with everything — pizza, burgers, mac & cheese AND chowder & lobster rolls (score 8). Something for every picky eater in the family.", walk:"3–4 min walk ★", price:"$20–30 pp",
            transit:'<span class="line-tag L-green">Green</span>/<span class="line-tag L-blue">Blue</span> — Government Center.', maps:"https://maps.app.goo.gl/UoZEiJfuEoFTuNy78"},
           {n:"Union Oyster House", seafood:true, d:"America's oldest restaurant (1826) — oysters & chowder right on the Freedom Trail. Toothpicks were basically invented here.", walk:"4 min walk", price:"$20–40 pp",
-           maps:mapsQ("Union Oyster House Boston")},
-          {n:"Raising Cane's (Solid Gold Edition)", nonsea:true, d:"Everything inside is literally gold. Fun, fast chicken fingers in Downtown Crossing — the non-seafood, kid-approved pick.", walk:"10–12 min walk", price:"$10–15 pp",
+           maps:mapsQ("Union Oyster House Boston"), hours:"11 AM–9 PM (Fri/Sat to 10)"},
+          {n:"Raising Cane's (Solid Gold Edition)", nonsea:true, pk:"raisingcanes", d:"Everything inside is literally gold. Fun, fast chicken fingers in Downtown Crossing — the non-seafood, kid-approved pick.", walk:"10–12 min walk", price:"$10–15 pp",
            transit:'<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing.', maps:"https://maps.app.goo.gl/szvw2TFFBJzkA8N99"},
           {n:"Jiro's Sushi", seafood:true, pk:"jirossushi", d:"Chinatown sushi spot the group rated well (score 12) — a ~10-min walk if you want something different downtown.", walk:"Chinatown · 10–12 min", price:"$15–30 pp",
-           transit:'<span class="line-tag L-orange">Orange</span> — Chinatown.', maps:mapsQ("Jiro's Sushi 32 Kneeland St Boston")}
+           transit:'<span class="line-tag L-orange">Orange</span> — Chinatown.', maps:mapsQ("Jiro's Sushi 32 Kneeland St Boston"), hours:"Mon–Sat 11 AM–8:30 PM (closed Sun)"},
+          {n:"Sam LaGrassa's", nonsea:true, d:"Downtown sandwich legend — towering pastrami, corned beef & Rachels. Weekday lunch only; the line moves fast.", walk:"Downtown Crossing · 8 min", price:"$12–18 pp", transit:'<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing.', maps:mapsQ("Sam LaGrassa's Boston"), hours:"Mon–Fri 11 AM–2 PM · closed weekends"},
+          {n:"Boston Sail Loft", seafood:true, d:"Casual waterfront spot near Faneuil & the aquarium — chowder, fish & cold beers with harbor views.", walk:"Waterfront · 8 min", price:"$15–30 pp", transit:'<span class="line-tag L-blue">Blue</span> — Aquarium.', maps:mapsQ("Boston Sail Loft Atlantic Ave Boston")},
+          {n:"Chinatown — Dim Sum & Hot Pot", nonsea:true, d:"From the sheet's wish list: Chinatown is a 10-min walk from downtown — carts of dim sum by day, bubbling hot pot any time. Great for a big, sharing group.", walk:"Chinatown · 10 min", price:"$15–30 pp", transit:'<span class="line-tag L-orange">Orange Line</span> — Chinatown.', maps:mapsQ("dim sum hot pot Chinatown Boston")}
         ]},
         {slot:"Afternoon", icon:"🏛️", activities:[
           {name:"Boston Tea Party Ships & Museum", cat:"The Fourth",
@@ -154,7 +171,9 @@ const DATA = {
          eats:[
           {n:"Charles Street, Beacon Hill", nonsea:true, d:"Cozy pubs, burger joints & bistros a short walk from the Esplanade — eat before the crowds for the 7 PM concert.", walk:"By the Esplanade", price:"$15–35 pp",
            transit:'<span class="line-tag L-red">Red</span> — Charles/MGH.', maps:mapsQ("restaurants Charles Street Beacon Hill Boston")},
-          {n:"Pack a picnic for the Esplanade", nonsea:true, d:"Many families bring blankets + sandwiches to the Hatch Shell lawn. The only dinner where saving your spot matters more than the menu.", walk:"—", maps:mapsQ("sandwich shop downtown Boston")}
+          {n:"Pack a picnic for the Esplanade", nonsea:true, d:"Many families bring blankets + sandwiches to the Hatch Shell lawn. The only dinner where saving your spot matters more than the menu.", walk:"—", maps:mapsQ("sandwich shop downtown Boston")},
+          {n:"The Paramount", nonsea:true, d:"Beacon Hill diner institution on Charles St — burgers, brunch plates & comfort food, steps from the Esplanade. Order at the counter.", walk:"Charles St · by the Esplanade", price:"$15–28 pp", transit:'<span class="line-tag L-red">Red</span> — Charles/MGH.', maps:mapsQ("The Paramount Charles Street Boston"), hours:"8 AM–9 PM daily"},
+          {n:"RUKA Restobar", nonsea:true, d:"Sleek downtown spot for Peruvian-Nikkei (Peru meets Japan) — ceviche, tiraditos & maki. Dinner only; a stylish night near the downtown sights.", walk:"Downtown Crossing", price:"$25–40 pp", transit:'<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing.', maps:mapsQ("RUKA Restobar 505 Washington St Boston"), hours:"5–11 PM (Fri/Sat to 12)"}
         ]},
         {slot:"Evening", icon:"🎆", activities:[
           {name:"July 4th Concert & Fireworks at the Charles River", cat:"The Fourth",
@@ -193,9 +212,8 @@ const DATA = {
          eatsIntro:"Lunch right across from the beach — the classic Quincy combo of a clam shack and a taco spot.",
          eats:[
           {n:"Tony's Clam Shop", seafood:true, d:"Wollaston Beach institution since 1964 — fried clams, lobster rolls & chowder, steps from the sand.", walk:"1–3 min walk ★", price:"$12–30 pp",
-           transit:'On Quincy Shore Dr, across from the beach.', maps:mapsQ("Tony's Clam Shop Quincy MA")},
-          {n:"Taco shop near Wollaston Beach", nonsea:true, d:"Casual tacos & burritos a short walk from the beach — easy, cheap and family-friendly. The non-seafood half of the classic beach-day combo.", walk:"5–10 min walk", price:"$10–18 pp",
-           maps:mapsQ("tacos near Wollaston Beach Quincy MA")}
+           transit:'On Quincy Shore Dr, across from the beach.', maps:mapsQ("Tony's Clam Shop Quincy MA"), hours:"11 AM–8 PM (Fri/Sat to 9)"},
+          {n:"More near Wollaston — North Quincy eats", nonsea:true, d:"A short hop from the sand, Hancock St & Quincy Ave are loaded with cheap, great Asian eats — Vietnamese pho, Cantonese, Korean — plus pizza and subs.", walk:"Quincy · short drive", price:"$10–22 pp", transit:'<span class="line-tag L-red">Red Line</span> — Wollaston / North Quincy.', maps:mapsQ("restaurants near Wollaston Beach Quincy MA")}
         ]},
         {slot:"Afternoon", icon:"☀️", activities:[
           {name:"More beach / family relax time", cat:"Local experience",
@@ -217,7 +235,8 @@ const DATA = {
           {n:"South Bay Center dining (by AMC)", nonsea:true, d:"Cluster of casual restaurants right at the theater — burgers, tacos, ramen & more, easy before/after the film.", walk:"At the theater ★", price:"$12–30 pp",
            transit:'<span class="line-tag L-red">Red Line</span> — Andrew.', maps:mapsQ("South Bay Center restaurants Boston")},
           {n:"Dave's Hot Chicken", pk:"daveshotchicken", nonsea:true, d:"Really good, crispy & spicy — by the AMC, multiple locations (score 8). Pick your heat level wisely; 'Reaper' is not a dare to win.", walk:"Near AMC", price:"$10–18 pp",
-           maps:mapsQ("Dave's Hot Chicken Boston")}
+           maps:mapsQ("Dave's Hot Chicken Boston"), hours:"10:30 AM–11 PM (Fri/Sat to 12)"},
+          {n:"Spettus Steak House", nonsea:true, d:"Brazilian churrascaria right in Quincy — all-you-can-eat rodízio of grilled meats, near the AirBnB base. A great group feast after the beach.", walk:"Quincy · near base", price:"$30–45 pp", transit:'<span class="line-tag L-red">Red Line</span> — Quincy Center.', maps:mapsQ("Spettus Steak House Independence Ave Quincy MA"), hours:"11 AM–9 PM (Fri/Sat to 10 · Sun to 8)"}
         ]}
       ],
       optional:[
@@ -248,22 +267,24 @@ const DATA = {
          eatsIntro:"Lunch in the North End — the plan is Carmelinas. Italian heaven within a couple blocks of every afternoon stop.",
          eats:[
           {n:"Carmelinas", pk:"carmelinas", nonsea:true, d:"Possible birthday lunch for David! Beloved North End Italian (score 15) — pastas & pizzas, no seafood required. No reservations, so channel your patience.", walk:"North End · 5 min from Paul Revere House", price:"$20–40 pp",
-           transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:"https://www.google.com/maps/search/?api=1&query=Carmelina%27s%20307%20Hanover%20St%20Boston"},
+           transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:"https://www.google.com/maps/search/?api=1&query=Carmelina%27s%20307%20Hanover%20St%20Boston", hours:"11:30 AM–10 PM daily"},
           {n:"Monica's Mercato", pk:"monicasmercato", nonsea:true, d:"North End Italian deli & grocery (score 8) — knockout sub sandwiches stacked with imported meats & cheeses. Grab-and-go done right.", walk:"North End · 4 min", price:"$12–20 pp",
-           transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:mapsQ("Monica's Mercato 130 Salem St Boston")},
+           transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:mapsQ("Monica's Mercato 130 Salem St Boston"), hours:"9:30 AM–8 PM daily"},
           {n:"Antico Forno", nonsea:true, d:"Brick-oven Italian recommended by Andy's family — great pizzas & pastas blistered in the wood oven.", walk:"North End", price:"$18–35 pp",
            maps:mapsQ("Antico Forno North End Boston")},
           {n:"Neptune Oyster", seafood:true, pk:"neptuneoyster", d:"Tiny, famous — oysters & a hot-buttered lobster roll, by the Paul Revere House (score 10). The wait is long; the lobster roll is longer.", walk:"3 min walk", price:"$25–40 pp",
-           maps:mapsQ("Neptune Oyster 63 Salem St Boston")}
+           maps:mapsQ("Neptune Oyster 63 Salem St Boston"), hours:"11 AM–9:30 PM (Fri/Sat to 10:30)"},
+          {n:"Pizzeria Regina (original)", nonsea:true, d:"The original 1926 brick-oven pizzeria on Thacher St — a North End legend. Cash-friendly and worth the wait.", walk:"North End · 5 min", price:"$15–25 pp", transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:mapsQ("Pizzeria Regina Thacher St Boston"), hours:"Mon–Sat 11 AM–10 PM · Sun to 9"},
+          {n:"Giacomo's Ristorante", nonsea:true, d:"Tiny, wildly popular Hanover St Italian — generous pastas (and seafood). Cash only, expect a line, totally worth it.", walk:"North End · Hanover St", price:"$20–35 pp", transit:'<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket.', maps:mapsQ("Giacomo's Ristorante Hanover St Boston"), hours:"Sun–Thu 12–10 PM · Fri/Sat to 10:30 · cash only"}
         ]},
         {slot:"Afternoon", icon:"🥐", activities:[
           {name:"North End Bakery Crawl 🥐", cat:"Fooood",
            notes:"Tour the Lil' Italy bakeries: Mike's Pastry (cannoli, score 17!), Modern Pastry Shop (pistachio cannoli & Napoleon, score 16), and Tatte's Cafe. Cannoli showdown — get one from each and compare.",
            address:"Mike's: 300 Hanover St · Modern: 257 Hanover St",
-           hours:"Mike's 8a–10p · Modern 7a–11p",
+           hours:"Mike's 8 AM–10 PM · Modern 7 AM–10 PM (Fri/Sat to 12)",
            pref:{M:4,Jo:1,D:3,Ji:3,K:3,A:3,total:17},
            transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-green">Green</span> — Haymarket, 5–8 min walk.'),
-           imgs:[].concat(pics("mikespastry",2),pics("modernpastryshop",2),pics("tattebakerycafe",1))},
+           imgs:[].concat(pics("mikespastry"),pics("modernpastryshop"),pics("tattebakerycafe"))},
           {name:"Paul Revere House", cat:"Boston (read with accent)",
            notes:"The oldest building in downtown Boston (c. 1680) and Paul Revere's colonial home. Close to Gordon Ramsay's restaurant and the Quincy Market area.",
            price:"6",
@@ -276,12 +297,14 @@ const DATA = {
         {slot:"Evening + Dinner", icon:"⚽", meal:true,
          eatsIntro:"5 PM: FIFA match — watch in a pub! Dinner at Gordon Ramsay or a sports bar to catch the game. (Round of 16 runs this week — see the FIFA tab.)",
          eats:[
-          {n:"Gordon Ramsay restaurant", pk:"gordonramsey", nonsea:true, d:"Near the Paul Revere House / Quincy Market (score 12). Burgers & beef Wellington — lively spot to eat & watch the match without anyone yelling 'it's RAW!'", walk:"North End edge · 8 min", price:"$25–40 pp",
-           transit:'<span class="line-tag L-green">Green</span>/<span class="line-tag L-orange">Orange</span> — Haymarket.', maps:"https://maps.app.goo.gl/UPpu8Dx7wyF8BRNe9"},
+          {n:"Gordon Ramsay Burger", pk:"gordonramsey", nonsea:true, d:"Near the Paul Revere House / Quincy Market (score 12). Burgers & beef Wellington — lively spot to eat & watch the match without anyone yelling 'it's RAW!'", walk:"North End edge · 8 min", price:"$25–40 pp",
+           transit:'<span class="line-tag L-green">Green</span>/<span class="line-tag L-orange">Orange</span> — Haymarket.', maps:"https://maps.app.goo.gl/UPpu8Dx7wyF8BRNe9", hours:"Mon–Sat 11 AM–10 PM · Sun to 9"},
           {n:"The Greatest Bar", nonsea:true, d:"Multi-floor sports bar by TD Garden with one of Boston's biggest HDTVs — wings, burgers & nachos for the FIFA game.", walk:"By North Station", price:"$15–30 pp",
            transit:'<span class="line-tag L-green">Green</span>/<span class="line-tag L-orange">Orange</span> — North Station. ★', maps:mapsQ("The Greatest Bar 262 Friend St Boston")},
           {n:"Warehouse Kitchen + Sports Bar", nonsea:true, d:"20 TVs showing every World Cup match, walkable from downtown. Pub grub central.", walk:"Financial District", price:"$15–30 pp",
-           maps:mapsQ("Warehouse Bar 40 Broad St Boston")}
+           maps:mapsQ("Warehouse Bar 40 Broad St Boston")},
+          {n:"High Street Place Food Hall", nonsea:true, d:"Downtown food hall with ~20 vendors (pizza, tacos, dumplings & more) showing every World Cup match on a 28-foot video wall — extended hours & easy for a big, picky group.", walk:"Financial District", price:"$12–25 pp",
+           transit:'<span class="line-tag L-blue">Blue</span>/<span class="line-tag L-orange">Orange</span> — State; <span class="line-tag L-red">Red</span> — South Station.', maps:mapsQ("High Street Place 100 High St Boston")}
         ]}
       ],
       optional:[
@@ -312,8 +335,9 @@ const DATA = {
          eatsIntro:"Lunch on the way down — Triple S Craft BBQ in Seekonk is right off the route to Newport.",
          eats:[
           {n:"Triple S Craft BBQ", pk:"triplescraftbbq", nonsea:true, d:"On the way to Newport (from the sheet). Craft barbecue — brisket, ribs & smoked meats to fuel the day. Fully non-seafood, fully worth the pit stop.", walk:"Drive · Seekonk, MA", price:"$15–30 pp",
-           maps:mapsQ("Triple S Craft BBQ 68 Mink St Seekonk MA")},
-          {n:"Or grab lunch in Newport", d:"If you'd rather push straight through, eat near the mansions — see the dinner picks below (seafood + burgers + tacos).", walk:"Newport", maps:mapsQ("lunch near Newport Mansions Bellevue Ave")}
+           maps:mapsQ("Triple S Craft BBQ 68 Mink St Seekonk MA"), hours:"Thu–Sun 12–8 PM · CLOSED Mon–Wed"},
+          {n:"Or grab lunch in Newport", d:"If you'd rather push straight through, eat near the mansions — see the dinner picks below (seafood + burgers + tacos).", walk:"Newport", maps:mapsQ("lunch near Newport Mansions Bellevue Ave")},
+          {n:"Flo's Clam Shack", seafood:true, d:"Newport-area clam-shack icon — fried clams, lobster rolls & chowder, casual and right by the beach (Middletown).", walk:"Middletown · near Newport beaches", price:"$15–30 pp", maps:mapsQ("Flo's Clam Shack Middletown RI"), hours:"11 AM–9 PM daily (seasonal)"}
         ]},
         {slot:"Afternoon", icon:"🌊", activities:[
           {name:"Cliff Walk & Newport Harbor", cat:"A nice trip",
@@ -327,15 +351,14 @@ const DATA = {
          eatsIntro:"Dinner in Newport near the mansions/harbor — seafood standouts PLUS non-seafood options (burgers & tacos) so everyone's happy. All roughly $10–40 pp.",
          eats:[
           {n:"The Mooring Seafood Kitchen & Bar", seafood:true, d:"Frequently rated Newport's best lobster roll — lemon-chive aioli on toasted brioche, right on the harbor.", walk:"Harborfront · ~6 min drive from mansions", price:"$18–40 pp",
-           maps:mapsQ("The Mooring Seafood Kitchen Newport RI")},
+           maps:mapsQ("The Mooring Seafood Kitchen Newport RI"), hours:"11:30 AM–9 PM (Fri/Sat to 10)"},
           {n:"Midtown Oyster Bar", seafood:true, d:"Trendy multi-level spot on Thames St — oysters, fresh fish & a lively crowd.", walk:"Thames St", price:"$15–38 pp",
-           maps:mapsQ("Midtown Oyster Bar Newport RI")},
+           maps:mapsQ("Midtown Oyster Bar Newport RI"), hours:"11:30 AM–9 PM (Fri/Sat to 9:30)"},
           {n:"Mission", nonsea:true, d:"Tiny, wildly popular burger joint on Lower Thames — top-rated, cheap and quick. The non-seafood MVP of Newport.", walk:"Lower Thames St", price:"$10–15 pp",
-           maps:mapsQ("Mission Burgers Newport RI")},
-          {n:"Tito's Cantina", nonsea:true, d:"Newport Mexican — tacos, burritos & margaritas for anyone who's officially seafood'd-out.", walk:"Broadway, Newport", price:"$12–22 pp",
-           maps:mapsQ("Tito's Cantina Newport RI")},
+           maps:mapsQ("Mission Burgers Newport RI"), hours:"Tue–Fri 11 AM–9 PM · Sat/Sun from 7:30 AM · closed Mon"},
           {n:"Easton's Beach Snack Bar", seafood:true, d:"Locals' budget pick — a famously generous, well-priced lobster roll right by the beach.", walk:"Easton's Beach", price:"$12–22 pp",
-           maps:mapsQ("Easton's Beach Snack Bar Newport RI")}
+           maps:mapsQ("Easton's Beach Snack Bar Newport RI"), hours:"Seasonal (summer) — confirm on Maps"},
+          {n:"Brick Alley Pub", nonsea:true, d:"Long-running Thames St pub — burgers, sandwiches & hearty American plates. A reliable non-seafood crowd-pleaser.", walk:"Thames St, Newport", price:"$15–30 pp", maps:mapsQ("Brick Alley Pub Newport RI"), hours:"11:30 AM–9 PM (Fri/Sat to 9:30)"}
         ]}
       ],
       optional:[
@@ -368,11 +391,11 @@ const DATA = {
          eatsIntro:"Lunch near the Gardner/MFA — these Puerto Rican favorites are a short walk and score well with the group.",
          eats:[
           {n:"Manà Escondido Cafe", pk:"manaescondidocafe", nonsea:true, d:"Puerto Rican — great chicken & pork, near the museums (score 13). Mofongo over mussels, always.", walk:"8–15 min walk", price:"$12–25 pp",
-           maps:mapsQ("Mana Escondido Cafe 68 Aguadilla St Boston")},
+           maps:mapsQ("Mana Escondido Cafe 68 Aguadilla St Boston"), hours:"Mon–Sat 9 AM–7 PM (closed Sun)"},
           {n:"Vejigantes Restaurant", pk:"vejigantesrestaurant", nonsea:true, d:"Marinated, home-style Puerto Rican food near MFA/Isabella (score 10).", walk:"10–15 min walk", price:"$12–28 pp",
-           maps:mapsQ("Vejigantes Restaurant 57 W Dedham St Boston")},
+           maps:mapsQ("Vejigantes Restaurant 57 W Dedham St Boston"), hours:"11 AM–10 PM (Fri/Sat to 11)"},
           {n:"MFA / Gardner café", nonsea:true, d:"If you'd rather not leave — both museums have nice cafés (sandwiches, salads) for a quick bite.", walk:"On-site ★", price:"$12–22 pp",
-           transit:'<span class="line-tag L-green">Green E</span> — Museum of Fine Arts.', maps:mapsQ("Museum of Fine Arts Boston cafe")}
+           transit:'<span class="line-tag L-green">Green E</span> — Museum of Fine Arts.', maps:mapsQ("Museum of Fine Arts Boston cafe"), hours:"Open during museum hours (≈ 10 AM–4:30 PM)"}
         ]},
         {slot:"Afternoon", icon:"⛪", activities:[
           {name:"Cathedral of the Holy Cross", cat:"Boston (read with accent)",
@@ -399,15 +422,18 @@ const DATA = {
          eatsIntro:"Dinner in Back Bay near the library — Newbury Street is a block away and full of options.",
          eats:[
           {n:"Saltie Girl", seafood:true, pk:"saltiegirl", d:"Stylish seafood bar — lobster rolls & pistachio tiramisu, near Back Bay (score 8).", walk:"5–8 min walk", price:"$20–40 pp",
-           transit:'<span class="line-tag L-green">Green</span> — Copley/Arlington.', maps:mapsQ("Saltie Girl 281 Dartmouth St Boston")},
+           transit:'<span class="line-tag L-green">Green</span> — Copley/Arlington.', maps:mapsQ("Saltie Girl 281 Dartmouth St Boston"), hours:"11 AM–10 PM (Fri/Sat to 11)"},
           {n:"Sarva Indian Cuisine", pk:"sarvaindiancuisine", nonsea:true, d:"Newbury St Indian with great ambiance (score 11) — curries, tandoori & naan a block off Copley.", walk:"On Newbury St", price:"$15–30 pp",
-           maps:mapsQ("Sarva Indian Cuisine 279 Newbury St Boston")},
+           maps:mapsQ("Sarva Indian Cuisine 279 Newbury St Boston"), hours:"11 AM–9:30 PM (Sat to 10)"},
           {n:"Sweet Cheeks Q", pk:"sweetcheeksq", nonsea:true, d:"Tim Love's Fenway barbecue (Diners, Drive-Ins & Dives favorite, score 12) — brisket, ribs & buckets of scratch-made biscuits.", walk:"Fenway · short ride", price:"$15–30 pp",
-           transit:'<span class="line-tag L-green">Green</span> — Kenmore/Fenway.', maps:mapsQ("Sweet Cheeks Q 1381 Boylston St Boston")},
+           transit:'<span class="line-tag L-green">Green</span> — Kenmore/Fenway.', maps:mapsQ("Sweet Cheeks Q 1381 Boylston St Boston"), hours:"11:30 AM–9 PM (Fri/Sat to 10)"},
           {n:"Wahlburgers", nonsea:true, d:"Yes, THAT Wahlberg family — burgers & tots near Fenway/MFA (score 10). Say hi to Paul for us.", walk:"Fenway", price:"$12–20 pp",
-           maps:"https://maps.app.goo.gl/TsGp2LR9ppATwL679"},
+           maps:"https://maps.app.goo.gl/TsGp2LR9ppATwL679", hours:"10:30 AM–9:30 PM (Fri/Sat to 10:30)"},
           {n:"Newbury Street restaurants", nonsea:true, d:"50+ cafés & restaurants along the brownstones — pizza, sushi, French, you name it. Pick your cuisine.", walk:"1–5 min walk ★", price:"$15–40 pp",
-           transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Newbury Street restaurants Boston")}
+           transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Newbury Street restaurants Boston")},
+          {n:"Fogo de Chão", nonsea:true, d:"Brazilian steakhouse on Dartmouth St by Copley — endless rodízio of fire-roasted meats carved tableside, plus a big market table. The Back Bay splurge.", walk:"Back Bay · Dartmouth St", price:"$$ · rodízio", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Fogo de Chao 200 Dartmouth St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 10:30)"},
+          {n:"Atlantic Fish Co.", seafood:true, d:"Boylston St seafood mainstay — daily fresh catch printed on the menu, a classic raw bar & a sidewalk patio.", walk:"Boylston St · 5 min", price:"$25–40 pp", transit:'<span class="line-tag L-green">Green</span> — Copley.', maps:mapsQ("Atlantic Fish Co Boylston St Boston"), hours:"11:30 AM–10 PM (Fri/Sat to 11)"},
+          {n:"Stephanie's on Newbury", nonsea:true, d:"Newbury St comfort-food favorite — big salads, sandwiches, brunch & prime people-watching on the patio.", walk:"Newbury St · 3 min", price:"$18–32 pp", transit:'<span class="line-tag L-green">Green</span> — Copley/Arlington.', maps:mapsQ("Stephanie's on Newbury Boston"), hours:"11 AM–10 PM (Fri/Sat to 11)"}
         ]}
       ],
       optional:[

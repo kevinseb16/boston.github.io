@@ -48,6 +48,30 @@ function scoresHTML(p){
   return h;
 }
 
+/* photo file base-name for an experience (strip emoji, parentheticals, and trailing " — ...") */
+function placeName(s){
+  return (s||"")
+    .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}]/gu,"")
+    .replace(/\s*[—–]\s.*$/,"")          // cut at em/en-dash subtitle
+    .replace(/\s*\([^)]*\)\s*/g," ")      // drop (parentheticals)
+    .replace(/\s{2,}/g," ").trim();
+}
+/* gallery for an experience: try your real photos in images/places/<name>-1.png …,
+   then fall back to the existing stand-in image for that slot. Drop files in to use. */
+function placePhotos(a){
+  if(a.noPhotos) return [];
+  const base=encodeURI(a.pl || placeName(a.name));
+  const themed=a.imgs||[];
+  const N=Math.max(themed.length,5);
+  let chains=[];
+  for(let i=0;i<N;i++){
+    let c=["images/places/"+base+"-"+(i+1)+".png","images/places/"+base+"-"+(i+1)+".jpg","images/places/"+base+"-"+(i+1)+".jpeg"];
+    if(themed[i]) c=c.concat(themed[i]);
+    chains.push(c);
+  }
+  return chains;
+}
+
 function activityCard(a){
   let chips="";
   if(a.price) chips+='<span class="chip price">💲 '+a.price.replace(/\n/g,' / ')+'</span>';
@@ -55,7 +79,7 @@ function activityCard(a){
   if(a.hours) chips+='<span class="chip hours">🕒 '+a.hours.replace(/\n/g,' · ')+'</span>';
 
   let body='';
-  body+=galleryHTML(a.imgs);
+  body+=galleryHTML(placePhotos(a));
   if(a.notes) body+='<div class="notes">'+a.notes+'</div>';
   if(a.address) body+='<div class="detail"><b>📍 Address:</b> '+a.address.replace(/\n/g,', ')+'</div>';
   if(a.hours) body+='<div class="detail"><b>🕒 Hours:</b> '+a.hours.replace(/\n/g,' · ')+'</div>';
@@ -80,23 +104,87 @@ function activityCard(a){
   return '<div class="card">'+head+'<div class="card-body">'+body+'</div></div>';
 }
 
+/* auto cuisine label from the spot's name + description */
+function cuisineTag(e){
+  if(e.cuisine===false) return "";
+  if(e.cuisine) return ' <span class="cuisine-tag">'+e.cuisine+'</span>';
+  const name=(e.n||"").toLowerCase();
+  const s=(name+" "+(e.d||"")).toLowerCase();
+  const hasN=a=>a.some(w=>name.indexOf(w)>=0);   // name only — for "area / explore" entries
+  const has=a=>a.some(w=>s.indexOf(w)>=0);        // name + description
+  let c=null;
+  if(hasN(["pack a picnic","charles street","more near","center dining","newbury street restaurants","grab lunch","quincy market","north quincy","food hall"])) c="🍽️ Varied";
+  else if(has(["carmelina","antico","forno","giacomo","ristorante","trattoria","mercato"])) c="🍝 Italian";
+  else if(has(["pizzeria","pizza","regina"])) c="🍕 Pizza";
+  else if(has(["cannoli","pastry","bakery","tatte","mike's","modern pastry","croissant","flour"])) c="🥐 Bakery";
+  else if(has(["churrascaria","brazilian","midwest grill","rodizio"])) c="🥩 Brazilian";
+  else if(has(["peruvian","machu picchu","lomo saltado"])) c="🇵🇪 Peruvian";
+  else if(has(["puerto rican","mofongo","vejigantes","escondido"])) c="🇵🇷 Puerto Rican";
+  else if(has(["taqueria","taco","burrito","mexican","chilacates","tito","pelon","cantina"])) c="🌮 Mexican";
+  else if(has(["indian","curry","sarva","tandoori","naan"])) c="🍛 Indian";
+  else if(has(["sushi","jiro","sashimi"])) c="🍣 Sushi";
+  else if(has(["dim sum","hot pot","chinatown","cantonese","korean","pho"])) c="🥟 Asian";
+  else if(has(["bbq","barbecue","brisket","triple s","sweet cheeks"])) c="🍖 BBQ";
+  else if(has(["italian","pasta"])) c="🍝 Italian";
+  else if(has(["hot chicken","fried chicken","cane","chicken finger","chicken tender"])) c="🍗 Chicken";
+  else if(has(["pub","sports bar","greatest bar","warehouse","banshee","dubliner","brick alley"])) c="🍺 Pub";
+  else if(has(["burger","wahlburgers","bartley","mission","paramount"])) c="🍔 Burgers";
+  else if(has(["deli","sandwich","sam lagrassa","stephanie"])) c="🥪 Sandwiches";
+  else if(has(["oyster","clam","lobster","seafood","mooring","neptune","saltie","legal sea","sail loft","flo's","atlantic fish","yankee","tony"])) c="🦞 Seafood";
+  return c ? ' <span class="cuisine-tag">'+c+'</span>' : "";
+}
+
+/* typical opening hours by spot/type (approximate — Map button has live hours).
+   An explicit e.hours always wins. */
+function eatHours(e){
+  if(e.hours) return e.hours;
+  const s=((e.n||"")+" "+(e.d||"")).toLowerCase();
+  const has=a=>a.some(w=>s.indexOf(w)>=0);
+  if(has(["pack a picnic"])) return null;
+  if(has(["mike's pastry"])) return "8 AM–10 PM";
+  if(has(["modern pastry"])) return "7 AM–11 PM";
+  if(has(["neptune"])) return "11 AM–9:30 PM (Fri/Sat to 10:30)";
+  if(has(["quincy market","faneuil"])) return "10 AM–9 PM (Sun 12–6)";
+  if(has(["sam lagrassa"])) return "Mon–Fri 11 AM–3:30 PM (lunch only)";
+  if(has(["clam shop","clam shack","easton","flo's","tony's"])) return "≈ 11 AM–8 PM (seasonal)";
+  if(has(["bakery","cafe","café","tatte","flour","pastry","cannoli","mercato"])) return "≈ 7 AM–8 PM";
+  if(has(["pub","sports bar","greatest bar","warehouse","dubliner","brick alley"])) return "≈ 11 AM–1 AM";
+  if(has(["food hall","market","high street","center dining","newbury street restaurants","more near","grab lunch","quincy center","north quincy","dim sum","hot pot","chinatown"])) return "Varies by venue";
+  if(has(["cane","dave's hot","chilacates","pelon","taqueria","taco","burrito"])) return "≈ 11 AM–10 PM";
+  return "≈ 11:30 AM–10 PM";   // default sit-down restaurant
+}
+
 function eatHTML(e){
   let walkClass = e.far ? "walk far" : "walk";
   let loc = e.loc || "Boston, MA";
-  let h='<div class="eat">';
-  h+='<div class="en">'+e.n+(e.seafood?' <span class="seafood-tag">🦞 Seafood</span>':'')+(e.nonsea?' <span class="nonsea-tag">🍗 Non-seafood</span>':'')+'</div>';
-  if(e.walk) h+='<div class="ed"><span class="'+walkClass+'">🚶 '+e.walk+'</span>'+(e.price?' &bull; <b style="color:var(--green)">'+e.price+'</b>':'')+'</div>';
-  if(e.d) h+='<div class="ed">'+e.d+'</div>';
-  if(e.transit) h+='<div class="transit" style="margin:4px 0"><span class="star">★</span> '+e.transit+'</div>';
-  // real photos you uploaded (food + ambiance); none shown if you haven't added any
-  h+=galleryHTML(e.imgs||eatPhotos(e));
-  h+='<div class="eat-links">';
-  h+='<a class="maps-link" style="font-size:14px;padding:5px 11px" target="_blank" rel="noopener" href="'+(e.maps||mapsQ(e.n+" "+loc))+'">🗺️ Map</a>';
-  h+='<a class="btn alt" style="font-size:14px;padding:5px 11px" target="_blank" rel="noopener" href="'+mapsQ(e.n+" "+loc+" photos")+'">📷 Google photos</a>';
-  h+='<a class="btn alt" style="font-size:14px;padding:5px 11px;border-color:#d32323;color:#d32323" target="_blank" rel="noopener" href="'+yelpQ(e.n,loc)+'">⭐ Yelp photos</a>';
-  h+='</div>';
-  h+='</div>';
-  return h;
+  let photos = e.imgs||eatPhotos(e);
+  let tags = cuisineTag(e);   // cuisine label already conveys seafood vs non-seafood
+
+  // collapsed summary line (hours · walk · price · photos) — shown right under the name
+  let hrs=eatHours(e);
+  let summary='';
+  let hasWalk = e.walk && e.walk!=="—" && e.walk!=="-";
+  if(hrs) summary+='<span class="hrs-chip">🕒 '+hrs+'</span>';
+  if(hasWalk) summary+=(summary?' &bull; ':'')+'<span class="'+walkClass+'">🚶 '+e.walk+'</span>';
+  if(e.price) summary+=(summary?' &bull; ':'')+'<b style="color:var(--green)">'+e.price+'</b>';
+  if(photos.length) summary+=(summary?' &bull; ':'')+'<span class="photo-count">📷 '+photos.length+'</span>';
+
+  let head='<div class="eat-head" onclick="this.parentNode.classList.toggle(\'open\')">'+
+    '<div class="eat-title"><div class="en">'+e.n+tags+'</div>'+
+    (summary?'<div class="ed eat-summary">'+summary+'</div>':'')+'</div>'+
+    '<div class="expander">+</div></div>';
+
+  let body='<div class="eat-body">';
+  if(e.d) body+='<div class="ed eat-desc">'+e.d+'</div>';
+  if(e.transit) body+='<div class="transit" style="margin:6px 0"><span class="star">★</span> '+e.transit+'</div>';
+  body+=galleryHTML(photos);   // your real photos (none shown if you have none for this spot)
+  body+='<div class="eat-links">';
+  body+='<a class="maps-link" style="font-size:14px;padding:5px 11px" target="_blank" rel="noopener" href="'+(e.maps||mapsQ(e.n+" "+loc))+'">🗺️ Map</a>';
+  body+='<a class="btn alt" style="font-size:14px;padding:5px 11px" target="_blank" rel="noopener" href="'+mapsQ(e.n+" "+loc+" photos")+'">📷 Google photos</a>';
+  body+='<a class="btn alt" style="font-size:14px;padding:5px 11px;border-color:#d32323;color:#d32323" target="_blank" rel="noopener" href="'+yelpQ(e.n,loc)+'">⭐ Yelp photos</a>';
+  body+='</div></div>';
+
+  return '<div class="eat">'+head+body+'</div>';
 }
 
 function renderDay(d){
@@ -130,10 +218,23 @@ function renderDay(d){
 
 function renderPills(){
   let h='';
+  // wavy "road" drawn as a smooth SVG curve passing through every milestone dot
+  const n=DATA.days.length, UP=34, DOWN=66;
+  let nodes=[[0,(0%2===0)?UP:DOWN]];
+  DATA.days.forEach((d,i)=>nodes.push([(i+0.5)/n*100, (i%2===0)?UP:DOWN]));
+  nodes.push([100, nodes[nodes.length-1][1]]);
+  let path="M"+nodes[0][0].toFixed(1)+","+nodes[0][1].toFixed(1), prev=nodes[0];
+  for(let k=1;k<nodes.length;k++){ let p=nodes[k], mx=((prev[0]+p[0])/2).toFixed(1);
+    path+=" C"+mx+","+prev[1].toFixed(1)+" "+mx+","+p[1].toFixed(1)+" "+p[0].toFixed(1)+","+p[1].toFixed(1); prev=p; }
+  h+='<svg class="road-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="'+path+'"/></svg>';
+
   DATA.days.forEach((d,i)=>{
-    h+='<div class="day-pill'+(i===activeDay?' active':'')+'" onclick="selectDay('+i+')">'+
-       '<div class="dow">'+d.dow+'</div><div class="dt">'+d.date+'</div>'+
-       '<div class="th">'+(d.short||d.theme)+'</div></div>';
+    let dow=(d.dow||"").slice(0,3);
+    let dir=(i%2===0)?'up':'down';
+    h+='<button class="milestone '+dir+(i===activeDay?' active':'')+'" onclick="selectDay('+i+')" title="'+(d.theme||"")+'">'+
+       '<span class="ms-dot">'+(d.emoji||'📍')+'</span>'+
+       '<span class="ms-label"><span class="ms-dow">'+dow+'</span><span class="ms-date">'+d.date+'</span><span class="ms-theme">'+(d.short||d.theme)+'</span></span>'+
+       '</button>';
   });
   document.getElementById('dayPills').innerHTML=h;
 }
@@ -210,6 +311,14 @@ function buildLightbox(){
   lb.querySelector('.lb-prev').onclick=function(e){e.stopPropagation(); lbStep(-1);};
   lb.querySelector('.lb-next').onclick=function(e){e.stopPropagation(); lbStep(1);};
   lb.onclick=function(e){ if(e.target===lb) closeLightbox(); };
+  // phone swipe: left = next photo, right = previous
+  let tsX=0, tsY=0;
+  lb.addEventListener('touchstart',function(e){ if(e.touches&&e.touches.length===1){ tsX=e.touches[0].clientX; tsY=e.touches[0].clientY; } },{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(!e.changedTouches||!e.changedTouches.length) return;
+    let dx=e.changedTouches[0].clientX-tsX, dy=e.changedTouches[0].clientY-tsY;
+    if(Math.abs(dx)>40 && Math.abs(dx)>Math.abs(dy)) lbStep(dx<0?1:-1);
+  },{passive:true});
 }
 function lbShow(){
   let lb=document.getElementById('lightbox');
@@ -242,7 +351,7 @@ document.addEventListener('click',function(e){
 
 /* ---- lobster decals ---- */
 const LOBSTER_SVG = '<svg viewBox="0 0 120 152" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+
-'<g fill="#c0392b" stroke="#7d1f17" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">'+
+'<g fill="#ff8a8a" stroke="#e76b6b" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">'+
 '<path d="M52 30 Q34 6 18 9" fill="none"/><path d="M68 30 Q86 6 102 9" fill="none"/>'+
 '<path d="M44 54 L26 50" stroke-width="5"/><path d="M76 54 L94 50" stroke-width="5"/>'+
 '<ellipse cx="24" cy="48" rx="16" ry="11" transform="rotate(-28 24 48)"/>'+
@@ -253,7 +362,7 @@ const LOBSTER_SVG = '<svg viewBox="0 0 120 152" xmlns="http://www.w3.org/2000/sv
 '<ellipse cx="60" cy="88" rx="11" ry="12"/><ellipse cx="60" cy="104" rx="9" ry="10"/>'+
 '<path d="M49 66 l-18 6 M49 78 l-18 11 M49 90 l-16 12 M71 66 l18 6 M71 78 l18 11 M71 90 l16 12" stroke-width="3" fill="none"/>'+
 '<path d="M60 113 q-20 17 -11 32 q11 -9 11 -9 q0 0 11 9 q9 -15 -11 -32 Z"/>'+
-'<circle cx="54" cy="46" r="2.4" fill="#7d1f17" stroke="none"/><circle cx="66" cy="46" r="2.4" fill="#7d1f17" stroke="none"/>'+
+'<circle cx="54" cy="46" r="2.4" fill="#d65a5a" stroke="none"/><circle cx="66" cy="46" r="2.4" fill="#d65a5a" stroke="none"/>'+
 '</g></svg>';
 document.querySelectorAll('.lobster-decal').forEach(d=> d.innerHTML=LOBSTER_SVG);
 
