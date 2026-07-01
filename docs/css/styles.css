@@ -190,6 +190,8 @@
   .chip.price{background:#e3f3e8; color:var(--green);}
   .chip.score{background:#fdeceb; color:var(--lobster-dark);}
   .chip.hours{background:#eef4f7; color:var(--ocean-deep);}
+  .chip.leg{background:#e6f2ea; color:var(--green);}
+  .slot-note{font-size:14.5px; color:var(--ocean-deep); font-style:italic; margin:2px 0 10px;}
   .expander{font-size:28px; color:var(--lobster); transition:transform .2s; line-height:1; flex:0 0 auto; width:26px; text-align:center;}
   .card.open .expander{transform:rotate(45deg);}
   .card-body{display:none; padding:14px 20px 20px;}

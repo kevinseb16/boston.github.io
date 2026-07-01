@@ -72,6 +72,7 @@ function placePhotos(a){
 
 function activityCard(a){
   let chips="";
+  if(a.leg) chips+='<span class="chip leg">'+a.leg+'</span>';
   if(a.price) chips+='<span class="chip price">💲 '+a.price.replace(/\n/g,' / ')+'</span>';
   if(a.pref&&a.pref.total) chips+='<span class="chip score">★ Group score '+a.pref.total+'</span>';
   if(a.hours) chips+='<span class="chip hours">🕒 '+a.hours.replace(/\n/g,' · ')+'</span>';
@@ -218,6 +219,7 @@ function renderDay(d){
   d.blocks.forEach(b=>{
     let meal = (b.slot==="Lunch"||b.slot==="Dinner");
     h+='<div class="slot"><span class="slot-label'+(meal?' meal':'')+'">'+b.icon+' '+b.slot+'</span>';
+    if(b.note) h+='<div class="slot-note">'+b.note+'</div>';
     if(b.activities){ b.activities.forEach(a=> h+=activityCard(a)); }
     if(b.eatsIntro) h+='<div class="eats-intro">'+b.eatsIntro+'</div>';
     if(b.eats){ b.eats.forEach(e=> h+=eatHTML(e)); }

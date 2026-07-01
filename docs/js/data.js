@@ -161,19 +161,55 @@ const DATA = {
       theme:"Fourth of July — Downtown Boston", tagline:"Fireworks, freedom &amp; finding parking — you only get to pick two. 🎆",
       egg:{word:"Semiquincentennial", joke:"the word for a 250th anniversary — which is exactly how old the USA turns this year. Try saying it after the fireworks."},
       blocks:[
-        {slot:"Morning", icon:"📜", activities:[
-          {name:"Independence Reading at the Old State House", cat:"The Fourth", pl:"oldstatehouse",
-           notes:"6:30 AM — Mumsy arrives! 9–11 AM: the Declaration of Independence is read from the balcony of the Old State House, just as it was in 1776. A top group pick (score 17) and the most Boston way to spend the Fourth.",
+        {slot:"Morning", icon:"📜", note:"🚶 A self-guided Freedom Trail loop — about 0.8 mi and ~15–20 min of actual walking end to end (a leisurely 1½–2 hrs with stops). Each card shows the walk from the stop before it.", activities:[
+          {name:"Independence Reading at the Old State House", cat:"The Fourth", pl:"oldstatehouse", leg:"🚶 Start of the walk",
+           notes:"6:30 AM — Mumsy arrives! Then the morning's centerpiece: from 9–11 AM the Declaration of Independence is read aloud from the Old State House balcony, exactly as it was to a roaring crowd on July 18, 1776 — a tradition Boston has kept every Fourth since. (Top group pick, score 17.)\n\nThis red-brick building (1713) is the oldest surviving public building in Boston and was the seat of British colonial government — the very heart of royal power the colonists were rebelling against. Look up at the gilded LION and UNICORN on the gable, symbols of the Crown; today's are replicas — patriots tore the originals down and burned them in 1776. A slightly cheeky place to begin a Fourth of July walk.\n\n👀 Look for: the lion & unicorn up top, the balcony where the Declaration was read, and — just below — the Boston Massacre marker, your next stop.",
            hours:"9a–11a, July 4",
            address:"206 Washington St, Boston, MA 02109",
            pref:{M:3,Jo:2,D:3,Ji:3,K:3,A:3,total:17},
            transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-blue">Blue</span> — State St. station is at the door.'),
            imgs:[[wm("Old State House Boston Massachusetts.jpg"),lf("old,state,house,boston",201)],[lf("boston,colonial,history",202)],[lf("july,4th,parade,flag",203)]]},
-          {name:"King’s Chapel & Burying Ground", cat:"The Fourth", pl:"kingschapelandkingschapelburyingground",
-           notes:"A short walk from the Old State House on the Freedom Trail: Boston's first Anglican church (founded 1686; the granite chapel dates to 1754) and the city's oldest burying ground (1630) right beside it — colonial gravestones and a bell cast by Paul Revere. Peaceful, historic, and very fitting for the Fourth.",
+          {name:"Boston Massacre Site", cat:"The Fourth", leg:"🚶 right here · at the Old State House",
+           notes:"Right beneath the Old State House balcony, a ring of cobblestones set into the traffic island marks the spot where, on the snowy night of March 5, 1770, British soldiers fired into a taunting crowd and killed five colonists — among them Crispus Attucks, a sailor of African and Native descent often called the first to fall in the Revolution.\n\nPaul Revere quickly engraved a dramatized print of the “bloody massacre” that raced through the colonies as propaganda. In a twist, it was John Adams — a future president — who defended the soldiers in court and won most of them acquittals, insisting on fair trials even for the enemy. Stand on the marker and picture the chaos on a far narrower, gaslit street.\n\n👀 Look for: the circular cobblestone ring on the pavement just below the balcony (mind the traffic!).",
+           address:"State & Devonshire St, Boston, MA 02109",
+           transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-blue">Blue</span> — State St, right there.')},
+          {name:"Old City Hall & the Ben Franklin Statue", cat:"The Fourth", leg:"🚶 ~2 min · down School St",
+           notes:"A short stroll down School Street brings you to Old City Hall (1865), a grand French Second Empire pile that served as Boston's city hall for over a century. But the ground it stands on is even older: this was the site of Boston Latin School, founded in 1635 — America's first public school, and older than Harvard.\n\nOut front stands Benjamin Franklin — a Boston Latin dropout who went on to help write the very Declaration being read up the street — cast in 1856 as the city's first portrait statue (look closely; his expression is subtly different from each side). Nearby a bronze “Democratic Donkey” and a set of Republican footprints let you literally pick a side. A fun, photo-friendly pause.\n\n👀 Look for: the four moods of Franklin's face, the mosaic 'City Carpet' marking the Latin School, and the donkey you can hop on.",
+           address:"45 School St, Boston, MA 02108",
+           transit:T('<span class="line-tag L-blue">Blue</span>/<span class="line-tag L-green">Green</span> — Government Center · <span class="line-tag L-red">Red</span> — Park St.')},
+          {name:"King’s Chapel & Burying Ground", cat:"The Fourth", pl:"kingschapelandkingschapelburyingground", leg:"🚶 ~1 min · next door on School St",
+           notes:"Next door sits King's Chapel — Boston's first Anglican church, founded in 1686 and deeply unwelcome in this Puritan town (the royal governor had to seize a corner of the burying ground to build it). The severe granite chapel you see went up in 1749–54 to a design by Peter Harrison, often called America's first architect; the money ran out before the planned steeple, which is why it looks so boldly “unfinished.” Step inside for one of the country's most elegant Georgian interiors — and the bell in the tower is the largest Paul Revere ever cast.\n\nBeside it lies King's Chapel Burying Ground (1630), the oldest in the city. Wander the leaning slate stones and you'll find John Winthrop (Boston's founding governor), Mary Chilton (said to be the first woman ashore from the Mayflower), and the grave of Elizabeth Pain, whose weathered stone may have inspired Hawthorne's The Scarlet Letter.\n\n👀 Look for: the steeple-less tower, the box pews inside, and the winged skulls & soul-effigies carved on the oldest headstones.",
            hours:"Chapel open most days; burying ground dawn–dusk",
            address:"58 Tremont St, Boston, MA 02108",
-           transit:T('<span class="line-tag L-blue">Blue</span>/<span class="line-tag L-green">Green</span> — Government Center · <span class="line-tag L-red">Red</span> — Park St.')}
+           transit:T('<span class="line-tag L-blue">Blue</span>/<span class="line-tag L-green">Green</span> — Government Center · <span class="line-tag L-red">Red</span> — Park St.')},
+          {name:"Old Corner Bookstore", cat:"The Fourth", leg:"🚶 ~2 min · to Washington St",
+           notes:"This little gambrel-roofed brick building (1718) is one of the oldest structures downtown — and in the 1800s it was the beating heart of American literature. As the home of publisher Ticknor & Fields, it put out Hawthorne's The Scarlet Letter, Thoreau's Walden, Longfellow, Harriet Beecher Stowe, and The Atlantic Monthly; Emerson, Dickens and Julia Ward Howe all passed through its doors.\n\nIt narrowly escaped the wrecking ball in 1960 — one of the rescues that helped launch Boston's whole preservation movement. Today it (rather cheerfully) houses a takeout counter, but the building itself is the artifact.\n\n👀 Look for: the steep gambrel roof and corner doorway, and the plaque recounting its literary all-stars.",
+           address:"283 Washington St, Boston, MA 02108",
+           transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-red">Red</span> — State / Downtown Crossing.')},
+          {name:"Boston Irish Famine Memorial", cat:"The Fourth", leg:"🚶 ~1 min · same corner",
+           notes:"On this small plaza stand two bronze sculpture groups, dedicated in 1998, that stop many walkers in their tracks. One shows a starving, despairing family during Ireland's Great Hunger (An Gorta Mór, 1845–52); a few steps away, the same family stands strong and hopeful, newly arrived in Boston.\n\nThe pairing tells the story of the roughly one million who died and the million more who emigrated — many of them landing right here and reshaping the city (Boston's politics, culture and character owe an enormous amount to that Irish wave).\n\n👀 Look for: the contrast between the two family groups, and the ring of story plaques set into the ground around them.",
+           address:"Washington & School St, Boston, MA 02108",
+           transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-red">Red</span> — State / Downtown Crossing.')},
+          {name:"Old South Meeting House", cat:"The Fourth", leg:"🚶 ~2 min · down Washington St",
+           notes:"Step into Old South Meeting House (1729) and you're in the room where the Revolution truly caught fire. As the largest building in colonial Boston, it hosted the era's biggest town meetings — and on December 16, 1773, more than 5,000 colonists crammed in to argue over three ships of taxed tea sitting in the harbor. When word came that the governor refused to send the tea back, Samuel Adams rose and declared, “This meeting can do nothing more to save the country” — the signal that launched the Boston Tea Party.\n\nThe British didn't forget the insult: during the occupation they gutted the interior and used the sanctuary as a horse-riding ring. Saved from demolition in 1876 in one of America's first great preservation fights, it's now a museum of free speech and revolution.\n\n👀 Look for: the tall white steeple, the second-floor galleries, and exhibits with actual tea recovered from the harbor.",
+           address:"310 Washington St, Boston, MA 02108",
+           transit:T('<span class="line-tag L-orange">Orange</span>/<span class="line-tag L-red">Red</span> — State / Downtown Crossing.')},
+          {name:"Boston Bricks — the “Bronze Alley” (Winthrop Lane)", cat:"The Fourth", pl:"bostonbricks", leg:"🚶 ~4 min · to Downtown Crossing",
+           notes:"Duck into Winthrop Lane, a narrow pedestrian alley, and look DOWN: the pavement is studded with around 100 brick-sized bronze reliefs — a public artwork called “Boston Bricks: A Celebration of Boston's Past,” set here in 1985 by artists Kate Burke and Gregg LeFevre. It's history you walk on, not past.\n\nEach little panel captures a moment of Boston ingenuity, tragedy or plain weirdness — and hunting down your favorites is half the fun. It's the perfect low-key, kid-friendly breather between the heavier historic stops.\n\n👀 Keep an eye out for: the 1919 Great Molasses Flood, Paul Revere's ride, the telephone (invented in Boston), the Red Sox and the Boston Pops — and notice how the raised bits are buffed shiny from decades of footsteps (the artists planned exactly that).",
+           address:"Winthrop Lane (between Otis & Arch St), Boston, MA 02110",
+           transit:T('<span class="line-tag L-red">Red</span>/<span class="line-tag L-orange">Orange</span> — Downtown Crossing, ~2-min walk.')},
+          {name:"The Liberty Tree Site & Plaza", cat:"The Fourth", pl:"libertytree", leg:"🚶 ~6 min · down Washington to Essex St",
+           notes:"Your walk ends where the whole idea of American resistance arguably began. At the corner of Washington & Essex once stood a towering elm, and on August 14, 1765, colonists hung effigies of the hated stamp official from its branches — the first bold, public act of defiance against the Crown. The spot became known as the “Liberty Tree,” the ground beneath it “Liberty Hall,” and it drew Sons of Liberty rallies for a decade.\n\nThe tree became such a potent symbol that in August 1775 British soldiers and Loyalists spitefully chopped it down for firewood — but by then “liberty trees” and liberty poles were sprouting in towns across the colonies (and, later, in Revolutionary France). A fittingly defiant place to close out a Fourth of July morning.\n\n👀 Keep an eye out for: the carved third-floor bas-relief of the tree at 630 Washington St, the bronze sidewalk plaque (“SONS OF LIBERTY, 1766 — INDEPENDENCE of their COUNTRY, 1776”), and the commemorative elm & stone monument at Liberty Tree Plaza.",
+           address:"Liberty Tree Plaza, 2 Boylston St (at Washington & Essex), Boston, MA 02111",
+           transit:T('<span class="line-tag L-green">Green</span> — Boylston · <span class="line-tag L-orange">Orange</span> — Chinatown, ~2-min walk.')},
+          {name:"Granary Burying Ground", cat:"The Fourth", leg:"🚶 uphill add-on · up Tremont St",
+           notes:"A short uphill extension from the downtown loop — head up Tremont St toward Beacon Hill (or save it for another day if you're pacing yourselves for the fireworks). Founded in 1660, this is Boston's third-oldest graveyard and one of the most storied stops on the whole Freedom Trail.\n\nPacked into this small plot are Paul Revere, John Hancock, Samuel Adams and Robert Treat Paine, plus the five victims of the Boston Massacre and Benjamin Franklin's parents (remembered by the tall central obelisk). Even “Mother Goose” is said to rest here. Wander the rows of slate stones and read the winged skulls and epitaphs.\n\n👀 Look for: the Franklin family obelisk, Paul Revere's modest marker, Hancock's memorial, and the Boston Massacre victims' stone.",
+           address:"Tremont St (beside Park Street Church), Boston, MA 02108",
+           transit:T('<span class="line-tag L-green">Green</span>/<span class="line-tag L-red">Red</span> — Park Street.')},
+          {name:"Boston Common → the State House", cat:"The Fourth", leg:"🚶 a few min more · to the top of the Common",
+           notes:"Two more Beacon Hill landmarks, side by side at the top of the Common — a fitting finale if you're still going.\n\nBOSTON COMMON (1634) — the oldest public park in America and the official start of the Freedom Trail. Once used for grazing cattle, drilling militia and (less charmingly) public hangings, it's now 50 acres of lawns, monuments and the Frog Pond. <a class='src-link' href='https://www.google.com/maps/search/?api=1&query=Boston%20Common' target='_blank' rel='noopener'>map ↗</a>\n\nMASSACHUSETTS STATE HOUSE (1798) — Charles Bulfinch's landmark crowning Beacon Hill, topped by a 23-karat gold dome (first wood, then copper sheathed by Paul Revere, later gilded). Oliver Wendell Holmes nicknamed Boston “the hub of the solar system” from right around here. <a class='src-link' href='https://www.google.com/maps/search/?api=1&query=Massachusetts%20State%20House%20Boston' target='_blank' rel='noopener'>map ↗</a>\n\n👀 Look for: the golden dome glinting across the Common, the Frog Pond, and the Robert Gould Shaw & 54th Regiment Memorial at the Common's edge.",
+           address:"Boston Common → 24 Beacon St, Boston",
+           transit:T('<span class="line-tag L-green">Green</span>/<span class="line-tag L-red">Red</span> — Park Street.')}
         ]},
         {slot:"Lunch", icon:"🍴", meal:true,
          eatsIntro:"Lunch near the Old State House — Faneuil Hall & Quincy Market are a 3-minute walk, packed with options.",
@@ -190,15 +226,7 @@ const DATA = {
           {n:"Boston Sail Loft", seafood:true, d:"Casual waterfront spot near Faneuil & the aquarium — chowder, fish & cold beers with harbor views.", walk:"Waterfront · 8 min", price:"$15–30 pp", transit:'<span class="line-tag L-blue">Blue</span> — Aquarium.', maps:mapsQ("Boston Sail Loft Atlantic Ave Boston")},
           {n:"Chinatown — Dim Sum & Hot Pot", nonsea:true, d:"From the sheet's wish list: Chinatown is a 10-min walk from downtown — carts of dim sum by day, bubbling hot pot any time. Great for a big, sharing group.", walk:"Chinatown · 10 min", price:"$15–30 pp", transit:'<span class="line-tag L-orange">Orange Line</span> — Chinatown.', maps:mapsQ("dim sum hot pot Chinatown Boston")}
         ]},
-        {slot:"Afternoon", icon:"🏛️", activities:[
-          {name:"Boston Tea Party Ships & Museum", cat:"The Fourth",
-           notes:"Especially fitting for the Fourth. Pretty waterfront area — fun to walk around, see the Federal Reserve, South Station, Chinatown, walk by the river and the tall buildings.",
-           price:"36",
-           address:"306 Congress St, Boston, MA 02210",
-           pref:{M:3,Jo:1,D:2,Ji:2,K:2,A:2,total:12},
-           transit:T('<span class="line-tag L-red">Red</span>/<span class="line-tag L-silver">Silver</span> — South Station, 6-min walk.'),
-           imgs:[[wm("Boston Tea Party Ships and Museum.jpg"),lf("boston,tea,party,ship",204)],[lf("tall,ship,harbor",205)],[lf("boston,waterfront,skyline",206)]]}
-        ]},
+        {slot:"Afternoon — rest up 😴", icon:"🏠", note:"After lunch we head back to the AirBnB to put our feet up and recharge. Let's be honest — we're far too “old” to power straight through from the morning walk to a 9:15 PM fireworks finale without a nap. Regroup, hydrate, maybe a cheeky snooze, then head back out for the concert & fireworks refreshed."},
         {slot:"Dinner", icon:"🍽️", meal:true,
          eatsIntro:"Grab an early dinner before staking out fireworks spots. Beacon Hill / Charles Street is close to the Esplanade.",
          eats:[
@@ -219,11 +247,11 @@ const DATA = {
         ]}
       ],
       optional:[
-        {n:"Freedom Trail", d:"2.5-mile red-brick path linking 16 Revolutionary sites — from Boston Common to Bunker Hill. Self-guided & free.", loc:"Boston", maps:mapsQ("Freedom Trail Boston")},
-        {n:"Faneuil Hall", d:"The 'Cradle of Liberty' — historic meeting hall & marketplace.", loc:"4 S Market St, Boston", maps:mapsQ("Faneuil Hall Boston")},
-        {n:"Paul Revere House & Old North Church", d:"Two of the most famous Revolution-era sites, both in the North End.", loc:"North End, Boston", maps:mapsQ("Old North Church Boston")},
-        {n:"New England Aquarium", d:"On the waterfront near the Tea Party Museum — penguins & the giant ocean tank.", loc:"1 Central Wharf, Boston", maps:mapsQ("New England Aquarium Boston")},
-        {n:"Rose Kennedy Greenway", d:"Linear park with art, fountains & food trucks connecting downtown to the waterfront.", loc:"Boston", maps:mapsQ("Rose Kennedy Greenway Boston")}
+        {n:"Faneuil Hall", d:"~4 min · the 'Cradle of Liberty' (1742) — revolutionary meeting hall above the market. Look up for the golden grasshopper weathervane.", loc:"4 S Market St, Boston", maps:mapsQ("Faneuil Hall Boston")},
+        {n:"Custom House Tower", d:"~5 min · Boston's first skyscraper — a 1915 clock tower on an 1847 Greek-Revival base; spot it from all over downtown.", loc:"3 McKinley Sq, Boston", maps:mapsQ("Custom House Tower Boston")},
+        {n:"Park Street Church", d:"~7 min · an elegant 1809 white steeple at 'Brimstone Corner'; the hymn 'America (My Country 'Tis of Thee)' was first sung here in 1831.", loc:"1 Park St, Boston", maps:mapsQ("Park Street Church Boston")},
+        {n:"Follow the Freedom Trail", d:"The 2.5-mile red-brick line literally connects most of these — just follow the bricks between the Old State House, King's Chapel and the Common.", loc:"Boston", maps:mapsQ("Freedom Trail Boston")},
+        {n:"Boston Tea Party Ships & Museum", d:"~10–12 min toward the Seaport · $36 · group score 12. Especially fitting for the Fourth — board replica ships and 'throw the tea,' and see a surviving original tea chest. Pretty walk past South Station, the Federal Reserve and the river.", loc:"306 Congress St, Boston, MA 02210", maps:mapsQ("Boston Tea Party Ships Museum Boston")}
       ]
     },
 
@@ -246,6 +274,8 @@ const DATA = {
          eats:[
           {n:"Tony's Clam Shop", seafood:true, d:"Wollaston Beach institution since 1964 — fried clams, lobster rolls & chowder, steps from the sand.", walk:"1–3 min walk ★", price:"$12–30 pp",
            transit:'On Quincy Shore Dr, across from the beach.', maps:mapsQ("Tony's Clam Shop Quincy MA"), hours:"11 AM–8 PM (Fri/Sat to 9)"},
+          {n:"Taco shop near Wollaston Beach", nonsea:true, d:"Casual tacos & burritos a short walk from the beach — easy, cheap and family-friendly. The non-seafood half of the classic beach-day combo.", walk:"5–10 min walk", price:"$10–18 pp",
+           maps:mapsQ("tacos near Wollaston Beach Quincy MA")},
           {n:"More near Wollaston — North Quincy eats", nonsea:true, d:"A short hop from the sand, Hancock St & Quincy Ave are loaded with cheap, great Asian eats — Vietnamese pho, Cantonese, Korean — plus pizza and subs.", walk:"Quincy · short drive", price:"$10–22 pp", transit:'<span class="line-tag L-red">Red Line</span> — Wollaston / North Quincy.', maps:mapsQ("restaurants near Wollaston Beach Quincy MA")}
         ]},
         {slot:"Afternoon", icon:"☀️", activities:[
@@ -254,9 +284,12 @@ const DATA = {
            pref:{M:3,Jo:2,D:3,Ji:3,K:3,A:3,total:17},
            transit:T('<span class="line-tag L-red">Red Line</span> — Wollaston / Quincy Center.')}
         ]},
-        {slot:"Evening", icon:"🎬", activities:[
-          {name:"Supergirl — movie night", cat:"Local experience",
-           notes:"A fun group outing (score 13). Showtimes from the sheet:\nAMC South Bay Center 12 — 1:45p (20% off), 2:30p (20% off), 5:15p, 7:00p.\nAMC Braintree 10 — 10:30a (20% off), 7:30p, 10:30p.\nNote: Costco — AG to buy AMC tickets for a free gift card.",
+        {slot:"Evening", icon:"🌙", activities:[
+          {name:"Family Game & Movie Night 🎲🎬", cat:"Local experience",
+           notes:"Back at the AirBnB, wind down with a family game & movie night — Johnny's on Clue duty, plus the card games we packed. Then queue up the decided lineup:\n\n🎬 Enola Holmes 3 — on Netflix <a class='src-link' href='https://www.netflix.com/title/81605886' target='_blank' rel='noopener'>▶ watch</a>\n🎬 Life, Larry & the Pursuit of Unhappiness — Larry David's sketch series on HBO Max (also on Hulu & Prime Video) <a class='src-link' href='https://www.hbomax.com/shows/life-larry-and-the-pursuit-of-unhappiness/8988709f-f7c0-4c2d-ba85-c57d360eefd4' target='_blank' rel='noopener'>▶ watch</a>\n🎬 She Came to Me — Hulu or Prime Video, or free on Kanopy with a library card <a class='src-link' href='https://www.justwatch.com/us/movie/she-came-to-me' target='_blank' rel='noopener'>▶ watch</a>\n\nLow-key, competitive, snack-fueled — the perfect cap to a beach day.",
+           transit:T('At the AirBnB — no travel needed.')},
+          {name:"Supergirl — movie night (flexible!)", cat:"Local experience",
+           notes:"Totally flexible — do it tonight, shuffle to another showtime/day, or skip it in favor of game night; whatever the group's energy allows. A fun outing either way (score 13).\n\nShowtimes from the sheet:\nAMC South Bay Center 12 — 1:45p (20% off), 2:30p (20% off), 5:15p, 7:00p.\nAMC Braintree 10 — 10:30a (20% off), 7:30p, 10:30p.\nNote: Costco — AG to buy AMC tickets for a free gift card.",
            address:"AMC South Bay Center 12, Boston / AMC Braintree 10",
            pref:{M:3,Jo:1,D:3,Ji:3,K:1,A:2,total:13},
            transit:T('AMC South Bay — near <span class="line-tag L-red">Red Line</span> Andrew + bus.'),
@@ -288,7 +321,7 @@ const DATA = {
       blocks:[
         {slot:"Morning", icon:"🔬", activities:[
           {name:"Museum of Science (+ Planetarium / IMAX)", cat:"Boston (read with accent)",
-           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check the IMAX & planetarium showtimes when you arrive.\n\n🎟️ Tip: reserve a free/discounted museum pass with your Boston Public Library card (bpl.org).",
+           notes:"James Webb telescope documentary at the IMAX Dome, the planetarium, and an incredible museum of science & natural history — dinosaurs and mammoths! A high pick for the science crew (score 14). Check the IMAX & planetarium showtimes when you arrive.\n\n💸 Ways to save (the reliable ones):\n• Library pass — reserve a free/discounted Exhibit Halls pass with a Boston Public Library card at bpl.org (best deal).\n• Boston CityPASS — bundles the Museum with other big attractions for up to ~45% off (worth it only if you're doing several).\n• Museums for All / EBT — up to 4 discounted admissions with an EBT card.\n• (Friday evenings after 4:30 PM are ~30% off — but we're going Monday, so it won't apply.)\n\n⚠️ Skip the “promo codes” on coupon sites (SPACESHIP, ‘$10 off,’ etc.) — those are third-party and almost always expired or fake. Official prices & offers are at mos.org/visit/ways-to-save.",
            price:"Gen admission $30 · IMAX Dome $10 ($6 w/ admission) · Planetarium $10 ($6 w/ admission)",
            hours:"Museum 9a–5p · IMAX Dome 11a, 3p · Planetarium 1:30p",
            address:"1 Museum of Science Driveway, Boston, MA 02114",
@@ -382,7 +415,9 @@ const DATA = {
           {n:"Triple S Craft BBQ", pk:"triplescraftbbq", nonsea:true, d:"On the way to Newport (from the sheet). Craft barbecue — brisket, ribs & smoked meats to fuel the day. Fully non-seafood, fully worth the pit stop.", walk:"Drive · Seekonk, MA", price:"$15–30 pp",
            maps:mapsQ("Triple S Craft BBQ 68 Mink St Seekonk MA"), hours:"Thu–Sun 12–8 PM · CLOSED Mon–Wed"},
           {n:"Or grab lunch in Newport", d:"If you'd rather push straight through, eat near the mansions — see the dinner picks below (seafood + burgers + tacos).", walk:"Newport", maps:mapsQ("lunch near Newport Mansions Bellevue Ave")},
-          {n:"Flo's Clam Shack", seafood:true, d:"Newport-area clam-shack icon — fried clams, lobster rolls & chowder, casual and right by the beach (Middletown).", walk:"Middletown · near Newport beaches", price:"$15–30 pp", maps:mapsQ("Flo's Clam Shack Middletown RI"), hours:"11 AM–9 PM daily (seasonal)"}
+          {n:"Flo's Clam Shack", seafood:true, d:"Newport-area clam-shack icon — fried clams, lobster rolls & chowder, casual and right by the beach (Middletown).", walk:"Middletown · near Newport beaches", price:"$15–30 pp", maps:mapsQ("Flo's Clam Shack Middletown RI"), hours:"11 AM–9 PM daily (seasonal)"},
+          {n:"Smoke House", nonsea:true, d:"Waterfront BBQ on Waites Wharf — smoky dry-rub ribs, brisket, pulled pork & cornbread, with open-air harbor seating. A popular, easygoing Newport spot (and open when Triple S isn't).", walk:"Waites Wharf, Newport", price:"$15–30 pp", maps:mapsQ("Smoke House Newport RI"), hours:"≈ 11:30 AM–9 PM (seasonal)"},
+          {n:"Becky's BBQ", nonsea:true, d:"Voted best BBQ & best ribs in the Ocean State — 100% Southern-smoked. A short hop over in Middletown; well worth it for the meat lovers.", walk:"Middletown · near Newport", price:"$14–28 pp", maps:mapsQ("Becky's BBQ Middletown RI"), hours:"≈ 11 AM–8 PM"}
         ]},
         {slot:"Afternoon", icon:"🌊", activities:[
           {name:"Cliff Walk", cat:"A nice trip", pl:"cliffwalk",
@@ -407,7 +442,9 @@ const DATA = {
            maps:mapsQ("Mission Burgers Newport RI"), hours:"Tue–Fri 11 AM–9 PM · Sat/Sun from 7:30 AM · closed Mon"},
           {n:"Easton's Beach Snack Bar", seafood:true, d:"Locals' budget pick — a famously generous, well-priced lobster roll right by the beach.", walk:"Easton's Beach", price:"$12–22 pp",
            maps:mapsQ("Easton's Beach Snack Bar Newport RI"), hours:"Seasonal (summer) — confirm on Maps"},
-          {n:"Brick Alley Pub", nonsea:true, d:"Long-running Thames St pub — burgers, sandwiches & hearty American plates. A reliable non-seafood crowd-pleaser.", walk:"Thames St, Newport", price:"$15–30 pp", maps:mapsQ("Brick Alley Pub Newport RI"), hours:"11:30 AM–9 PM (Fri/Sat to 9:30)"}
+          {n:"Brick Alley Pub", nonsea:true, d:"Long-running Thames St pub — burgers, sandwiches & hearty American plates. A reliable non-seafood crowd-pleaser.", walk:"Thames St, Newport", price:"$15–30 pp", maps:mapsQ("Brick Alley Pub Newport RI"), hours:"11:30 AM–9 PM (Fri/Sat to 9:30)"},
+          {n:"The Black Pearl", seafood:true, d:"A Newport landmark on Bannister's Wharf for 50+ years — home of what many call the best clam chowder in town, plus a lively tavern and a four-season waterside patio.", walk:"Bannister's Wharf, Newport", price:"$20–40 pp", maps:mapsQ("The Black Pearl Newport RI"), hours:"11:30 AM–10 PM (patio & tavern)"},
+          {n:"White Horse Tavern", nonsea:true, cuisine:"🍽️ Tavern", d:"The oldest operating tavern in America (1673!) — colonial beams, giant fireplaces, and elevated New England classics; the clam chowder and Beef Wellington are legendary. The splurge of the trip — reserve ahead.", walk:"Marlborough St, Newport", price:"$$$ · reserve", maps:mapsQ("White Horse Tavern Newport RI"), hours:"Dinner nightly · weekend brunch"}
         ]}
       ],
       optional:[
