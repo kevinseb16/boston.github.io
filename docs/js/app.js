@@ -70,14 +70,26 @@ function placePhotos(a){
   return (arr && arr.length) ? arr.map(function(p){return [p];}) : [];
 }
 
+function ticketBox(t){
+  let entry = t.hard ? '<span class="tk-hard">⚠️ must be there at this time</span>' : '<span class="tk-flex">flexible timing</span>';
+  let h='<div class="ticket-box"><div class="tk-hd">🎟️ Tickets booked</div>';
+  if(t.go)  h+='<div class="tk-row">⏰ <b>Go at: '+t.go+'</b> &nbsp; '+entry+'</div>';
+  if(t.len) h+='<div class="tk-row">⏳ Aim for about <b>'+t.len+'</b></div>';
+  if(t.note) h+='<div class="tk-note">📝 '+t.note+'</div>';
+  h+='</div>';
+  return h;
+}
+
 function activityCard(a){
   let chips="";
+  if(a.ticket) chips+='<span class="chip ticket">🎟️ '+a.ticket.go+'</span>';
   if(a.leg) chips+='<span class="chip leg">'+a.leg+'</span>';
   if(a.price) chips+='<span class="chip price">💲 '+a.price.replace(/\n/g,' / ')+'</span>';
   if(a.pref&&a.pref.total) chips+='<span class="chip score">★ Group score '+a.pref.total+'</span>';
   if(a.hours) chips+='<span class="chip hours">🕒 '+a.hours.replace(/\n/g,' · ')+'</span>';
 
   let body='';
+  if(a.ticket) body+=ticketBox(a.ticket);
   body+=galleryHTML(placePhotos(a));
   if(a.notes) body+='<div class="notes">'+a.notes+'</div>';
   if(a.address) body+='<div class="detail"><b>📍 Address:</b> '+a.address.replace(/\n/g,', ')+'</div>';
